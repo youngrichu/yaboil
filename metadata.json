@@ -1,0 +1,8 @@
+{
+  "name": "Remix: YabOil Artisanal Botanicals",
+  "description": "A showcase for a high-end, artisan botanical oil brand.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
