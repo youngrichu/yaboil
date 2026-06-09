@@ -98,8 +98,10 @@ export default function Home() {
             </div>
           </Link>
         </div>
-        <div className="flex items-center justify-center p-page-margin-mobile md:p-page-margin-desktop bg-canvas border-l border-raw-sienna/5">
-          <div className="max-w-md space-y-8">
+        <div className="flex items-center justify-center p-page-margin-mobile md:p-page-margin-desktop bg-canvas border-l border-raw-sienna/5 relative overflow-hidden">
+          <img src="/images/illustrations/herb-rosemary.jpg" aria-hidden="true" alt="" className="absolute -left-[35%] top-1/2 -translate-y-1/2 w-[55%] opacity-[0.2] mix-blend-multiply pointer-events-none select-none hidden md:block" />
+          <img src="/images/illustrations/herb-rosemary.jpg" aria-hidden="true" alt="" className="absolute -right-[35%] top-1/2 -translate-y-1/2 w-[55%] opacity-[0.2] mix-blend-multiply pointer-events-none select-none hidden md:block" />
+          <div className="max-w-md space-y-8 relative z-10">
             <span className="font-label-caps text-label-caps text-raw-sienna tracking-[0.3em]">OUR PHILOSOPHY</span>
             <h2 className="font-headline-md text-headline-md text-deep-bark leading-snug">The Artisanal Standard: Naturally Pressed.</h2>
             <div className="space-y-6 font-body-lg text-body-lg text-on-surface-variant">

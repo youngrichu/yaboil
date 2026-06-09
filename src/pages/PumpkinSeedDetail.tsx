@@ -126,7 +126,9 @@ export default function PumpkinSeedDetail() {
           </div>
           
           {/* Right Side: Scrolling Narrative */}
-          <div className="w-full md:w-1/2 min-h-screen px-page-margin-mobile md:px-12 lg:px-24 py-16 md:py-16 bg-canvas flex flex-col justify-start relative z-10">
+          <div className="w-full md:w-1/2 min-h-screen px-page-margin-mobile md:px-12 lg:px-24 py-16 md:py-16 bg-canvas flex flex-col justify-start relative z-10 overflow-hidden">
+            <img src="/images/illustrations/pumpkin-vine.jpg" aria-hidden="true" alt="" className="absolute -left-[35%] top-1/2 -translate-y-1/2 w-[55%] opacity-[0.18] mix-blend-multiply pointer-events-none select-none [filter:sepia(0.8)_saturate(0.5)] hidden md:block" />
+            <img src="/images/illustrations/pumpkin-vine.jpg" aria-hidden="true" alt="" className="absolute -right-[35%] top-1/2 -translate-y-1/2 w-[55%] opacity-[0.18] mix-blend-multiply pointer-events-none select-none [filter:sepia(0.8)_saturate(0.5)] hidden md:block" />
             {/* Product Header & Pricing */}
             <div className="mb-10 space-y-4">
               <div className="flex flex-col space-y-2">

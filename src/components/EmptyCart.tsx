@@ -19,6 +19,9 @@ export default function EmptyCart({
       exit={{ opacity: 0 }}
       className="text-center py-20 px-6 border border-dashed border-raw-sienna/20 space-y-8 bg-surface-container-low/50 max-w-2xl mx-auto my-12 relative golden-shadow overflow-hidden"
     >
+      {/* Botanical illustration framing the empty state */}
+      <img src="/images/illustrations/castor.jpg" aria-hidden="true" alt="" className="absolute w-[140%] max-w-none left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 opacity-[0.18] mix-blend-multiply pointer-events-none select-none" />
+
       {/* Aesthetic ambient corner lines */}
       <div className="absolute top-0 left-0 w-8 h-8 border-t border-l border-raw-sienna/30"></div>
       <div className="absolute top-0 right-0 w-8 h-8 border-t border-r border-raw-sienna/30"></div>

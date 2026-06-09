@@ -34,11 +34,14 @@ export default function Process() {
     <div className="bg-canvas text-on-surface antialiased selection:bg-raw-sienna selection:text-canvas min-h-screen flex flex-col pt-20">
       <main className="flex-grow pt-12 pb-section-gap px-page-margin-mobile md:px-page-margin-desktop max-w-screen-2xl mx-auto w-full">
         {/* Hero Section */}
+        <div className="relative overflow-hidden">
+          <img src="/images/illustrations/nigella-sativa.jpg" aria-hidden="true" alt="" className="absolute -left-[35%] top-1/2 -translate-y-1/2 w-[55%] opacity-[0.2] mix-blend-multiply pointer-events-none select-none hidden lg:block" />
+          <img src="/images/illustrations/nigella-sativa.jpg" aria-hidden="true" alt="" className="absolute -right-[35%] top-1/2 -translate-y-1/2 w-[55%] opacity-[0.2] mix-blend-multiply pointer-events-none select-none hidden lg:block" />
         <motion.section
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-          className="mb-16 text-center max-w-3xl mx-auto py-12 md:py-16"
+          className="mb-16 text-center max-w-3xl mx-auto py-12 md:py-16 relative z-10"
         >
           <span className="font-label-caps text-label-caps text-raw-sienna tracking-[0.25em] block mb-4 uppercase">
             Our Craft Method
@@ -50,6 +53,7 @@ export default function Process() {
             A visual narrative of our methodology. We believe in the slow, deliberate craft of extracting botanical essence. Every drop is a testament to raw materials and patient hands, captured in the warmth of the golden hour.
           </p>
         </motion.section>
+        </div>
 
         {/* Zig-Zag Timeline */}
         <div className="space-y-section-gap overflow-hidden">
@@ -118,7 +122,9 @@ export default function Process() {
           </section>
 
           {/* Step 3: Bottling */}
-          <section className="flex flex-col md:flex-row items-center gap-gutter-desktop">
+          <section className="flex flex-col md:flex-row items-center gap-gutter-desktop relative overflow-hidden">
+            <img src="/images/illustrations/herb-rosemary.jpg" aria-hidden="true" alt="" className="absolute -left-[35%] top-1/2 -translate-y-1/2 w-[55%] opacity-[0.2] mix-blend-multiply pointer-events-none select-none hidden lg:block" />
+            <img src="/images/illustrations/herb-rosemary.jpg" aria-hidden="true" alt="" className="absolute -right-[35%] top-1/2 -translate-y-1/2 w-[55%] opacity-[0.2] mix-blend-multiply pointer-events-none select-none hidden lg:block" />
             <motion.div 
               {...imageReveal}
               className="w-full md:w-1/2 image-scale-container golden-shadow bg-alabaster p-2 border border-raw-sienna/10 group overflow-hidden"

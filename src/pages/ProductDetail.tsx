@@ -113,7 +113,9 @@ export default function ProductDetail() {
           </div>
           
           {/* Right Side: Scrolling Narrative */}
-          <div className="w-full md:w-1/2 min-h-screen px-page-margin-mobile md:px-12 lg:px-24 py-16 md:py-16 bg-canvas flex flex-col justify-start relative z-10">
+          <div className="w-full md:w-1/2 min-h-screen px-page-margin-mobile md:px-12 lg:px-24 py-16 md:py-16 bg-canvas flex flex-col justify-start relative z-10 overflow-hidden">
+            <img src="/images/illustrations/nigella-sativa.jpg" aria-hidden="true" alt="" className="absolute -left-[35%] top-1/2 -translate-y-1/2 w-[55%] opacity-[0.18] mix-blend-multiply pointer-events-none select-none hidden md:block" />
+            <img src="/images/illustrations/nigella-sativa.jpg" aria-hidden="true" alt="" className="absolute -right-[35%] top-1/2 -translate-y-1/2 w-[55%] opacity-[0.18] mix-blend-multiply pointer-events-none select-none hidden md:block" />
             {/* Product Header & Pricing */}
             <div className="mb-12">
               <h1 className="font-aligarh text-display-lg-mobile md:text-display-lg text-on-surface mb-4 leading-normal py-2">Black Seed Oil</h1>

@@ -6,18 +6,22 @@ export default function Lineup() {
     <>
       <main className="flex-grow flex flex-col pt-32 lg:pt-40">
         {/* Hero Section */}
-        <section className="w-full px-page-margin-mobile md:px-page-margin-desktop py-12 md:py-section-gap max-w-screen-2xl mx-auto flex flex-col items-center text-center">
-          <h1 className="font-aligarh text-headline-lg-mobile md:text-display-lg text-deep-bark mb-6 max-w-4xl tracking-tight">
+        <section className="w-full px-page-margin-mobile md:px-page-margin-desktop py-12 md:py-section-gap max-w-screen-2xl mx-auto flex flex-col items-center text-center relative overflow-hidden">
+          <img src="/images/illustrations/castor.jpg" aria-hidden="true" alt="" className="absolute -left-[35%] top-1/2 -translate-y-1/2 w-[55%] opacity-[0.2] mix-blend-multiply pointer-events-none select-none hidden md:block" />
+          <img src="/images/illustrations/castor.jpg" aria-hidden="true" alt="" className="absolute -right-[35%] top-1/2 -translate-y-1/2 w-[55%] opacity-[0.2] mix-blend-multiply pointer-events-none select-none hidden md:block" />
+          <h1 className="font-aligarh text-headline-lg-mobile md:text-display-lg text-deep-bark mb-6 max-w-4xl tracking-tight relative z-10">
             The Artisanal Lineup
           </h1>
-          <p className="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto leading-relaxed">
+          <p className="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto leading-relaxed relative z-10">
             Four exceptional botanicals, cold-pressed in small batches. Each bottle represents a commitment to purity, capturing the essence of organic agriculture through meticulous extraction processes.
           </p>
         </section>
 
         {/* Product Grid */}
-        <section className="w-full px-page-margin-mobile md:px-page-margin-desktop pb-section-gap max-w-screen-2xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-16">
+        <section className="w-full px-page-margin-mobile md:px-page-margin-desktop pb-section-gap max-w-screen-2xl mx-auto relative overflow-hidden">
+          <img src="/images/illustrations/pumpkin-vine.jpg" aria-hidden="true" alt="" className="absolute -left-[35%] top-1/2 -translate-y-1/2 w-[55%] opacity-[0.18] mix-blend-multiply pointer-events-none select-none [filter:sepia(0.8)_saturate(0.5)] hidden md:block" />
+          <img src="/images/illustrations/pumpkin-vine.jpg" aria-hidden="true" alt="" className="absolute -right-[35%] top-1/2 -translate-y-1/2 w-[55%] opacity-[0.18] mix-blend-multiply pointer-events-none select-none [filter:sepia(0.8)_saturate(0.5)] hidden md:block" />
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-16 relative z-10">
             {/* Product 1: Black Seed */}
             <div className="group flex flex-col bg-alabaster border border-raw-sienna/10 overflow-hidden transition-all duration-500 hover:shadow-[10px_10px_30px_rgba(74,44,17,0.12)]">
               <div className="relative h-[45vh] md:h-[60vh] lg:h-[70vh] w-full overflow-hidden bg-surface-container-low cursor-pointer">

@@ -43,8 +43,10 @@ export default function Philosophy() {
         </section>
 
         {/* Methodology Highlights */}
-        <section className="py-section-gap bg-surface-container-low px-page-margin-mobile md:px-page-margin-desktop border-y border-outline/10">
-          <div className="max-w-7xl mx-auto">
+        <section className="py-section-gap bg-surface-container-low px-page-margin-mobile md:px-page-margin-desktop border-y border-outline/10 relative overflow-hidden">
+          <img src="/images/illustrations/castor.jpg" aria-hidden="true" alt="" className="absolute -left-[35%] top-1/2 -translate-y-1/2 w-[55%] opacity-[0.2] mix-blend-multiply pointer-events-none select-none hidden md:block" />
+          <img src="/images/illustrations/castor.jpg" aria-hidden="true" alt="" className="absolute -right-[35%] top-1/2 -translate-y-1/2 w-[55%] opacity-[0.2] mix-blend-multiply pointer-events-none select-none hidden md:block" />
+          <div className="max-w-7xl mx-auto relative z-10">
             <div className="text-center mb-16">
               <span className="font-label-caps text-label-caps tracking-widest uppercase text-raw-sienna mb-4 block">Methodology</span>
               <h2 className="font-aligarh text-headline-md text-deep-bark">Naturally Pressed</h2>
@@ -79,8 +81,10 @@ export default function Philosophy() {
         </section>
 
         {/* Sourcing Commitment */}
-        <section className="py-section-gap px-page-margin-mobile md:px-page-margin-desktop">
-          <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 lg:gap-16 items-center">
+        <section className="py-section-gap px-page-margin-mobile md:px-page-margin-desktop relative overflow-hidden">
+          <img src="/images/illustrations/herb-rosemary.jpg" aria-hidden="true" alt="" className="absolute -left-[35%] top-1/2 -translate-y-1/2 w-[55%] opacity-[0.2] mix-blend-multiply pointer-events-none select-none hidden md:block" />
+          <img src="/images/illustrations/herb-rosemary.jpg" aria-hidden="true" alt="" className="absolute -right-[35%] top-1/2 -translate-y-1/2 w-[55%] opacity-[0.2] mix-blend-multiply pointer-events-none select-none hidden md:block" />
+          <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 lg:gap-16 items-center relative z-10">
             <div className="md:col-span-12 lg:col-span-6 mb-10 lg:mb-0 relative">
               <div className="absolute -inset-4 bg-background -z-10 golden-shadow opacity-50 hidden md:block"></div>
               <img alt="Hands working with soil and plants." className="w-full aspect-square object-cover golden-shadow" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDFmwg2zuHv_QHBFeR5oydzlo29TvfY0c3uW0ovUHMKBPzL7YZ7kxD76ckcpqFqIUghelU2yEWUtH55IRd9ICzMJFWowsZrw-ITS5bbRtia90bgAELJ-2X70bX6QKHia4nMK57WmKuxJtXjyPR94GC6p-3T76ho4M1VBNqmA4oZQ8bcLAssUBC2MZcoBpG4OTZ1S455ofFVe7Nxc76ZbsEI3R2LNSuBHKJT976p8sQf4cOJHo_cXuDe0Q3MN12fD8J7yv-4umoLVmpm" />
