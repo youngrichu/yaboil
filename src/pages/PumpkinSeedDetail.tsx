@@ -83,7 +83,7 @@ export default function PumpkinSeedDetail() {
           id: 'pumpkin-seed',
           name: 'Pumpkin Seed Oil',
           price: 42.00,
-          image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBB3ppVTedLI-ehsEjCbeQ9mUmBHzIRwzkThRY7wrrKjnZ0KBCNSlEqLql2gIwcFWZAnosezanyZJeo26FWU0L4Mx3l9H11OrhW3oqLJXISjnkdbZQXlNyugj7N3va-4kIl7QFfcwYgdh6dNfKeTMTzI3eyp-dbt6redn7JXjk87q_A2en0sv7zk-qUmt5ykUfy9VHrbyv61f8eVI-VnxBclgIDKPCPjRil28gY0y28lkNdRkCFkPoDCiGNvYC_XcbvQDXfufJwBq_3',
+          image: '/images/pumpkin-seed.png',
           specs: '250ML | COLD PRESSED STYRIA',
           quantity: 1
         });
@@ -108,7 +108,7 @@ export default function PumpkinSeedDetail() {
               <img 
                 alt="Pumpkin Seed Oil Product Shot" 
                 className="w-full h-full object-cover transition-transform duration-1000 ease-out group-hover:scale-[1.03] shadow-[12px_16px_32px_-8px_rgba(74,44,17,0.08)]" 
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBB3ppVTedLI-ehsEjCbeQ9mUmBHzIRwzkThRY7wrrKjnZ0KBCNSlEqLql2gIwcFWZAnosezanyZJeo26FWU0L4Mx3l9H11OrhW3oqLJXISjnkdbZQXlNyugj7N3va-4kIl7QFfcwYgdh6dNfKeTMTzI3eyp-dbt6redn7JXjk87q_A2en0sv7zk-qUmt5ykUfy9VHrbyv61f8eVI-VnxBclgIDKPCPjRil28gY0y28lkNdRkCFkPoDCiGNvYC_XcbvQDXfufJwBq_3" 
+                src="/images/pumpkin-seed.png" 
               />
               <div className="absolute inset-0 bg-deep-bark/5 pointer-events-none"></div>
               
@@ -228,7 +228,7 @@ export default function PumpkinSeedDetail() {
               <img 
                 className="w-full h-full object-cover transition-transform duration-[1200ms] group-hover:scale-105" 
                 alt="Organic pumpkin seeds layout styling" 
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuAsooy0Fv01LrTE05cdkwSW3IEoABMgnCWepFYI5PtwLtfQnRs4fnhNeDNQK1cwIHwFAhysYokA69mlyMhIM_zZOoLNycTCk8j9KhS8n2BFLLFS9XAroSF_6eqkT2QGW_G3fx2RJGuafBt4JKqZtsA1PVjT2lfN7guhPgrYYiUARJBwD2tO_pz-XF_U9BnJhAwc-5vQZjUyh_H4oUI6MGDk_GsubepE4mgI74Btiv4NcnvjHR57KMIz4doqrmV5cFqweK1lkQZTluvI" 
+                src="/images/collection.png" 
               />
               <div className="absolute inset-0 bg-deep-bark/5 pointer-events-none"></div>
             </div>

@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import Footer from '../components/Footer';
+import CinematicShowcase from '../components/CinematicShowcase';
 
 export default function Home() {
   const sectionsRef = useRef<(HTMLElement | null)[]>([]);
@@ -40,8 +41,20 @@ export default function Home() {
       {/* Hero Section */}
       <section ref={addToRefs} className="relative min-h-screen flex items-center pt-20 overflow-hidden transition-all duration-1000 opacity-100 translate-y-0">
         <div className="absolute inset-0 z-0">
-          <img alt="The YabOil Collection" className="w-full h-full object-cover brightness-[0.98]" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCYzkFLqQxet2yC6MJJFeWb1I3rlIchOCrsROuvaJ5OgSoxsOFcuvW188OcsFvxj_cCA5s76DHXTOCaWjNVPgDoLl61kq6Fv3LzXBjNW4QhzvnDnyc6PyBZ1iLzSiU1Tj_Ie6a1cNpVdDCRiwEQ_xguOgKCewklD-yWiissSSZI4Ub_RNejeUX0QH01tCeB8zo0mOJeXr3zWZqHciySzORJfOta2J-3MWfDWaor8ZGvONtv6yRzosCT2zr5nXsTi012E1iNJPJqPVo7" />
-          <div className="absolute inset-0 bg-gradient-to-tr from-deep-bark/80 via-deep-bark/40 to-transparent"></div>
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            poster="/images/hero-poster.jpg"
+            ref={(el) => { if (el) el.playbackRate = 0.65; }}
+            className="w-full h-full object-cover brightness-[0.98]"
+          >
+            <source src="/images/hero-bg.webm" type="video/webm" />
+            <source src="/images/hero-bg-compressed.mp4" type="video/mp4" />
+          </video>
+          <div className="absolute inset-0 bg-deep-bark/30"></div>
+          <div className="absolute inset-0 bg-gradient-to-tr from-deep-bark/75 via-deep-bark/40 to-transparent"></div>
         </div>
         <div className="relative z-10 px-page-margin-mobile md:px-page-margin-desktop w-full max-w-4xl">
           <div className="space-y-6">
@@ -62,86 +75,28 @@ export default function Home() {
       </section>
 
       {/* Product Spotlight */}
-      <section ref={addToRefs} className="py-section-gap px-page-margin-mobile md:px-page-margin-desktop bg-alabaster transition-all duration-1000 opacity-100 translate-y-0" id="shop">
-        <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-4">
-          <div className="max-w-xl">
-            <span className="font-label-caps text-label-caps text-raw-sienna mb-4 block">The Core Four</span>
-            <h2 className="font-headline-md text-headline-md text-deep-bark">Curated essentials for every skin and hair type.</h2>
-          </div>
-          <a className="font-label-caps text-label-caps text-on-surface border-b border-on-surface pb-1 hover:text-raw-sienna hover:border-raw-sienna transition-colors" href="#">View All</a>
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {[
-            {
-              name: "Rosemary Oil",
-              desc: "Stimulating & Strengthening",
-              price: "$42.00",
-              tag: "Best Seller",
-              img: "https://lh3.googleusercontent.com/aida-public/AB6AXuCmtYlZW6tIKkv7DwMKu6No6WR8kmnu-Yn0WgEmJ2usbVLgUn3SBPIYkMIeL2Y0o4iC19HKxEq0pf3lpm7V_07wR1KgAN5joBbNG1snPmC2w0XjByuSdy2PP9a8cKenWW2h3sBQ_Ai9gj2wJcoWAFi7LKJcecbCqaO-yogoInDeJQrpdEKjh_QdPmlR3ENt55vJsP93xxpHHetqrlPYDX__882eZ6gdBSTP_svyIO8ckGDahNyl5nHJv0oA4sH7RjxU4zG0MFw2LlZR",
-              link: "/lineup"
-            },
-            {
-              name: "Black Seed Oil",
-              desc: "Restorative & Healing",
-              price: "$48.00",
-              img: "https://lh3.googleusercontent.com/aida-public/AB6AXuDVbfkk1_KEeDkQfyVDdOo_kl8PbmdFAVzQ_YQytXwXhf9wsaRpVq-nVzRjrLBoPWkGPrtV6yX4ngrNC5AFUylFHY7i3yOv_I0CMIndM5aAq_8pVp0YfJGlVLrXJzIihitNEwGdNjDbmXJZ61w4NnbOuiNDGtlVEtCVbL1tn0nj_UVGmGsSsVOSI4DWa3PysjJOMJrXV2kXQ1w6c3WSUtxDJB3sfn-Y2BbVrOkvqxt-KnKs2S1D5-DOmmu6sRHB87xF2uo3X7WHjjJm",
-              link: "/product/black-seed"
-            },
-            {
-              name: "Pumpkin Seed Oil",
-              desc: "Nutrient-Rich Glow",
-              price: "$38.00",
-              img: "https://lh3.googleusercontent.com/aida-public/AB6AXuDptkAWrp8-oCwOXn9dvsjg3oj4H-QSKY4Ol5q3-cemmawNNXKcVbR2opoVCD6LfMAx2rAkvNe36Q_y7Ch-lD0Kzn8LvV8EWx6bFV-aQscUJUPTNQOZZ0GhwdSdBOJZdhbp-R2ewUjgmsS2kdK_SXigGrwCvX5uCjWBHgm0H5J_6gYYvayPX6rvXw_Juuf0ygDqnGaMWYJHBqDOErq3FqyZXHrJgASbm_x10tKIWNzvbtIfdqEGIkG6QSYVqJf7uGmnD4zMxPLVkZ6_",
-              link: "/product/pumpkin-seed"
-            },
-            {
-              name: "Castor Oil",
-              desc: "Lash & Brow Vitality",
-              price: "$34.00",
-              img: "https://lh3.googleusercontent.com/aida-public/AB6AXuAdH_jygLq9wUNHzS_dvBJMH2hA5fICEG-qT_klAfs8bfMPsIwyh_VRKAbryTQXSNtX9n8k2WZsWacY2RkTmoCs-W25l0bAuigs7VgDeAE17YPBXdqIV3xRWe1rni8HFqEJwz-t6La56oscZe0DTaqkjEfhYU18fEfduEr5GNMP-lni21JMqDgDpxwyW3qVX-XVA5NasZSdeHlzNzegsPARCw7diW4UjTv_dfphdbPvUCKpRx6iYZ07neHzz_grKTzuNCQx5ppBnXyI",
-              link: "/lineup"
-            }
-          ].map((product, idx) => (
-            <div key={idx} className="group cursor-pointer">
-              <Link to={product.link} className="block">
-                <div className="relative aspect-[4/5] overflow-hidden mb-6 bg-surface-container">
-                  <img alt={product.name} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src={product.img} />
-                  {product.tag && (
-                    <div className="absolute bottom-4 left-4">
-                      <span className="bg-canvas/90 backdrop-blur-md px-3 py-1 font-label-sm text-label-sm text-deep-bark">{product.tag}</span>
-                    </div>
-                  )}
-                </div>
-              </Link>
-              <div className="space-y-2">
-                <Link to={product.link} className="hover:opacity-80 block">
-                  <h3 className="font-headline-md text-[20px] text-deep-bark">{product.name}</h3>
-                </Link>
-                <p className="font-label-caps text-label-sm text-on-surface-variant">{product.desc}</p>
-                <div className="flex justify-between items-center pt-2">
-                  <span className="font-body-md text-body-md">{product.price}</span>
-                  <Link className="font-label-caps text-label-caps text-raw-sienna opacity-0 group-hover:opacity-100 transition-opacity" to={product.link}>Discover</Link>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
+      <section ref={addToRefs} id="shop" className="transition-all duration-1000 opacity-100 translate-y-0">
+        <CinematicShowcase />
       </section>
 
       {/* Brand Story Section */}
       <section ref={addToRefs} className="grid grid-cols-1 md:grid-cols-2 min-h-[80vh] transition-all duration-1000 opacity-100 translate-y-0">
         <div className="relative overflow-hidden bg-surface-container-low group min-h-[50vh] md:min-h-full">
-          <div className="absolute inset-0 bg-deep-bark/5 z-10 transition-opacity group-hover:opacity-0"></div>
-          <div className="h-full w-full" style={{ backgroundImage: `url("https://lh3.googleusercontent.com/aida-public/AB6AXuCmtYlZW6tIKkv7DwMKu6No6WR8kmnu-Yn0WgEmJ2usbVLgUn3SBPIYkMIeL2Y0o4iC19HKxEq0pf3lpm7V_07wR1KgAN5joBbNG1snPmC2w0XjByuSdy2PP9a8cKenWW2h3sBQ_Ai9gj2wJcoWAFi7LKJcecbCqaO-yogoInDeJQrpdEKjh_QdPmlR3ENt55vJsP93xxpHHetqrlPYDX__882eZ6gdBSTP_svyIO8ckGDahNyl5nHJv0oA4sH7RjxU4zG0MFw2LlZR")`, backgroundSize: 'cover', backgroundPosition: 'center center' }}></div>
-          {/* Floating Callout */}
-          <div className="absolute top-1/4 left-1/4 z-20 flex flex-col items-center">
+          <div className="absolute inset-0 bg-deep-bark/5 z-10 transition-opacity group-hover:opacity-0 pointer-events-none"></div>
+          <img
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuDTYxe61RRkZ7M-dmHY9blpT3Kt05vz9ZwBzpumU072ueB3e_ug07ZJWtj_JR7DtlK-92Fg7lWctM3W9aq5dTx_F-htroALw0EmoXmWAfYijWhMIwDrIFR1yl1eR-FZ99yWo9ID636bUARkOWTuIWRb9z_6Zoyz7tVgnr3DDM0LkcM2mR2lmFDgGfKemUqyOalyWQFbhiglNBAl-QfqQ916oCVv27I5_9K7vRgBulKrodlclKED1sE41M9Ib9oqEWJWLUMmq5fCh2Ak"
+            alt=""
+            className="absolute inset-0 w-full h-full object-cover"
+          />
+          {/* Floating Callout — anchored near the oil drip (center of image) */}
+          <Link to="/process" className="hidden md:flex absolute top-[42%] left-[38%] z-20 flex-col items-center group/callout">
             <div className="w-2 h-2 bg-raw-sienna rounded-full"></div>
-            <div className="w-px h-24 bg-raw-sienna/40"></div>
-            <div className="bg-canvas/90 backdrop-blur-md p-4 golden-shadow border border-raw-sienna/10 max-w-[180px]">
-              <span className="font-label-caps text-[10px] text-raw-sienna block mb-1">Process 01</span>
+            <div className="w-px h-16 bg-raw-sienna/50"></div>
+            <div className="bg-canvas/90 backdrop-blur-md p-4 golden-shadow border border-raw-sienna/10 max-w-[180px] group-hover/callout:border-raw-sienna/40 transition-colors duration-300">
+              <span className="font-label-caps text-[10px] text-raw-sienna block mb-1">Our Process</span>
               <p className="font-body-md text-[13px] leading-tight text-on-surface-variant">Cold-pressed below 40°C to preserve enzymatic integrity.</p>
             </div>
-          </div>
+          </Link>
         </div>
         <div className="flex items-center justify-center p-page-margin-mobile md:p-page-margin-desktop bg-canvas border-l border-raw-sienna/5">
           <div className="max-w-md space-y-8">
@@ -156,10 +111,10 @@ export default function Home() {
               </p>
             </div>
             <div className="pt-4">
-              <button className="font-label-caps text-label-caps text-deep-bark flex items-center gap-4 group cursor-pointer focus:outline-none">
+              <Link to="/process" className="font-label-caps text-label-caps text-deep-bark flex items-center gap-4 group cursor-pointer focus:outline-none">
                   LEARN ABOUT OUR PRESSING
                   <span className="w-12 h-px bg-deep-bark group-hover:w-16 transition-all duration-300"></span>
-              </button>
+              </Link>
             </div>
           </div>
         </div>

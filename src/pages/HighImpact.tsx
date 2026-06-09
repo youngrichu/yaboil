@@ -122,10 +122,10 @@ export default function HighImpact() {
             </div>
 
             <div className="relative w-full border-2 border-hi-obsidian mb-16 overflow-hidden grid grid-cols-2 lg:grid-cols-4 grayscale contrast-125 bg-surface-container">
-               <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDVbfkk1_KEeDkQfyVDdOo_kl8PbmdFAVzQ_YQytXwXhf9wsaRpVq-nVzRjrLBoPWkGPrtV6yX4ngrNC5AFUylFHY7i3yOv_I0CMIndM5aAq_8pVp0YfJGlVLrXJzIihitNEwGdNjDbmXJZ61w4NnbOuiNDGtlVEtCVbL1tn0nj_UVGmGsSsVOSI4DWa3PysjJOMJrXV2kXQ1w6c3WSUtxDJB3sfn-Y2BbVrOkvqxt-KnKs2S1D5-DOmmu6sRHB87xF2uo3X7WHjjJm" alt="Black Seed" className="w-full aspect-square object-cover border-r-2 border-b-2 lg:border-b-0 border-hi-obsidian" />
-               <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCmtYlZW6tIKkv7DwMKu6No6WR8kmnu-Yn0WgEmJ2usbVLgUn3SBPIYkMIeL2Y0o4iC19HKxEq0pf3lpm7V_07wR1KgAN5joBbNG1snPmC2w0XjByuSdy2PP9a8cKenWW2h3sBQ_Ai9gj2wJcoWAFi7LKJcecbCqaO-yogoInDeJQrpdEKjh_QdPmlR3ENt55vJsP93xxpHHetqrlPYDX__882eZ6gdBSTP_svyIO8ckGDahNyl5nHJv0oA4sH7RjxU4zG0MFw2LlZR" alt="Rosemary" className="w-full aspect-square object-cover lg:border-r-2 lg:border-b-0 border-b-2 border-hi-obsidian" />
-               <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDptkAWrp8-oCwOXn9dvsjg3oj4H-QSKY4Ol5q3-cemmawNNXKcVbR2opoVCD6LfMAx2rAkvNe36Q_y7Ch-lD0Kzn8LvV8EWx6bFV-aQscUJUPTNQOZZ0GhwdSdBOJZdhbp-R2ewUjgmsS2kdK_SXigGrwCvX5uCjWBHgm0H5J_6gYYvayPX6rvXw_Juuf0ygDqnGaMWYJHBqDOErq3FqyZXHrJgASbm_x10tKIWNzvbtIfdqEGIkG6QSYVqJf7uGmnD4zMxPLVkZ6_" alt="Pumpkin Seed" className="w-full aspect-square object-cover border-r-2 border-hi-obsidian" />
-               <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAdH_jygLq9wUNHzS_dvBJMH2hA5fICEG-qT_klAfs8bfMPsIwyh_VRKAbryTQXSNtX9n8k2WZsWacY2RkTmoCs-W25l0bAuigs7VgDeAE17YPBXdqIV3xRWe1rni8HFqEJwz-t6La56oscZe0DTaqkjEfhYU18fEfduEr5GNMP-lni21JMqDgDpxwyW3qVX-XVA5NasZSdeHlzNzegsPARCw7diW4UjTv_dfphdbPvUCKpRx6iYZ07neHzz_grKTzuNCQx5ppBnXyI" alt="Castor" className="w-full aspect-square object-cover" />
+               <img src="/images/black-seed.png" alt="Black Seed" className="w-full aspect-square object-cover border-r-2 border-b-2 lg:border-b-0 border-hi-obsidian" />
+               <img src="/images/rosemary.png" alt="Rosemary" className="w-full aspect-square object-cover lg:border-r-2 lg:border-b-0 border-b-2 border-hi-obsidian" />
+               <img src="/images/pumpkin-seed.png" alt="Pumpkin Seed" className="w-full aspect-square object-cover border-r-2 border-hi-obsidian" />
+               <img src="/images/castor.png" alt="Castor" className="w-full aspect-square object-cover" />
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12 border-t-2 border-hi-obsidian pt-12 mt-12 relative">

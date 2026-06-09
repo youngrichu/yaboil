@@ -57,7 +57,7 @@ export default function Cart() {
         id: 'verdant-essence',
         name: 'Verdant Essence Oil',
         price: 84.00,
-        image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCcT8hFSbNKy2wq4WLb2epSyGOlLViNuzSkUMJHxF8o1PmZxaW0eLk0v3mVyMXfrf_g9BVqvGGy2MC9uJC4ONC0D8Uvu84JwbP_g0vOb-YoQwLr7iKSl69JeggubfpjatdKCjUtdYx-4K_SQk2sPLHr6H3km4C8fJk9zLH1bgvmK2cbTDwrBM3w_5xKPVzZOG6X7R1Bvj-MkLu2WpX3N0n6C8tl8C3Dthy_Y6fmed7OYOU3JWU1nyIYwFa5nuLSO786ODJsCGeEZO9r',
+        image: '/images/rosemary.png',
         specs: '100ML | HAND-POURED',
         quantity: 1,
       },
@@ -65,7 +65,7 @@ export default function Cart() {
         id: 'ancient-resin',
         name: 'Ancient Resin Cleanser',
         price: 62.00,
-        image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBK2c8_yvhiwo0uY6nJkXqAbiu10g5clpmXtROXnqDprrDJr9jnpRQ0C8gjWaCZhFK637sk42h2dwURM2HDllefThpkzJNCFO5w8Myrb4ieIiNP0FSSYqC8s_mhx6USAf1FV8KQv54b1LRf7p_-rVXhpOcaBakv8V_tJxWq8Zk6bUQ0-ZWt0iRt9BLFqbXcwC6P-GAmauhdEoZeYfWcH931-zOb854nk_DllOn-qfYvPvqPNVBzQdcq07df7G18KFIvedhgMkDwfvaU',
+        image: '/images/castor.png',
         specs: '200ML | ORGANIC BASE',
         quantity: 1,
       }
@@ -461,7 +461,7 @@ export default function Cart() {
                       />
                     </div>
 
-                    <div className="grid grid-cols-2 gap-4">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                       <div>
                         <label className="font-label-caps text-[9px] text-raw-sienna tracking-wider block mb-1 font-semibold uppercase">CITY</label>
                         <input 
@@ -506,7 +506,7 @@ export default function Cart() {
                       />
                     </div>
 
-                    <div className="grid grid-cols-2 gap-4">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                       <div>
                         <label className="font-label-caps text-[9px] text-raw-sienna tracking-wider block mb-1 font-semibold uppercase">EXPIRATION DATE</label>
                         <input 

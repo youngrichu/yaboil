@@ -34,11 +34,11 @@ export default function Process() {
     <div className="bg-canvas text-on-surface antialiased selection:bg-raw-sienna selection:text-canvas min-h-screen flex flex-col pt-20">
       <main className="flex-grow pt-12 pb-section-gap px-page-margin-mobile md:px-page-margin-desktop max-w-screen-2xl mx-auto w-full">
         {/* Hero Section */}
-        <motion.section 
+        <motion.section
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-          className="mb-section-gap text-center max-w-3xl mx-auto py-12 md:py-20"
+          className="mb-16 text-center max-w-3xl mx-auto py-12 md:py-16"
         >
           <span className="font-label-caps text-label-caps text-raw-sienna tracking-[0.25em] block mb-4 uppercase">
             Our Craft Method
@@ -49,7 +49,6 @@ export default function Process() {
           <p className="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto leading-relaxed">
             A visual narrative of our methodology. We believe in the slow, deliberate craft of extracting botanical essence. Every drop is a testament to raw materials and patient hands, captured in the warmth of the golden hour.
           </p>
-          <div className="w-px h-16 bg-raw-sienna/30 mx-auto mt-12"></div>
         </motion.section>
 
         {/* Zig-Zag Timeline */}
@@ -62,8 +61,8 @@ export default function Process() {
             >
               <img 
                 alt="Harvesting Botanicals" 
-                className="w-full h-[400px] md:h-[600px] object-cover transition-transform duration-1000 ease-out group-hover:scale-105 grayscale-[20%] sepia-[10%]" 
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuC_jbkEXdOYzYV_IxSGEL-TUtkzsgRhYYhJxFKRCoEabc-5HMWdb4hgZwqVsWF9SUsoLVo0QANtK0u4lLEn4tp6DPydPDRSZfFhN7ThrRRbxxLVas8-EJU5VeMHUE2cR9lSE86THVJp4YXXCTp4VBLVVK_MST1AEsmYBSCFi9g7OfjpFyJ7vd9YpRFNDo85EgOfXrvq6ruRxALAV3-bM3lR3AdYTBW5IgooOX_ymvszulCZfrcomES9igGJPX7BTtzo2LxJDz_fyp6J" 
+                className="w-full h-[260px] md:h-[480px] object-cover transition-transform duration-1000 ease-out group-hover:scale-105 grayscale-[20%] sepia-[10%]" 
+                src="/images/rosemary.png"
               />
             </motion.div>
             <motion.div 
@@ -94,8 +93,8 @@ export default function Process() {
             >
               <img 
                 alt="Cold Pressing Process" 
-                className="w-full h-[400px] md:h-[600px] object-cover transition-transform duration-1000 ease-out group-hover:scale-105 grayscale-[20%] sepia-[10%]" 
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuC4ZwtdheDs_p2lMeLv_GpZBNhx1Cdx1YLj7zL2OQ8scUIACgRVAIwYN7J2bXCov-badd8cpnGZHaL6QpM5J4zPPRrhs8woKcpfiu_c4qcGpdMdfgOlqyekxrsLOnsZD40NfYfMgZGA1tFITnd-g7SUEIjT4e7ueETc0O1KhGnVnGU6Rbh3QNok-x4p6y0MOcIZZxECkhfv8C36MtfZZMcHSleYtSfduW580WQOjAzddJ_3W3LdDqohtRfXcSmxbsLG7FiDKtBPTkQN" 
+                className="w-full h-[260px] md:h-[480px] object-cover transition-transform duration-1000 ease-out group-hover:scale-105 grayscale-[20%] sepia-[10%]" 
+                src="/images/black-seed.png"
               />
             </motion.div>
             <motion.div 
@@ -126,8 +125,8 @@ export default function Process() {
             >
               <img 
                 alt="Bottling the Oil" 
-                className="w-full h-[400px] md:h-[600px] object-cover transition-transform duration-1000 ease-out group-hover:scale-105 grayscale-[20%] sepia-[10%]" 
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuD-9DPFH11oUxdvCC8Yu524EOHPVrI23UpMJR6JfP5SiwLShnrd3hdtrm0WFuRZ5_SbyPE4xr1zbyMNHOsCFmXzmd-UkDy6sgNV36ul8dmtOalXvV6Q-1kCowGoYUknVpv0m2HfZOciN6i5fPv85DVvpwZaT-hDZvAQDJdOiotWTv0vOJl_KP30SUK7mcw-Q1pv8vei32KXqWYkvM9M0KAd5isdTwSzlwrcNSamwN-s5i4Ifzu0pu6rKTTFVN8e9Q7RpIYIhYGtYzg8" 
+                className="w-full h-[260px] md:h-[480px] object-cover transition-transform duration-1000 ease-out group-hover:scale-105 grayscale-[20%] sepia-[10%]" 
+                src="/images/collection.png"
               />
             </motion.div>
             <motion.div 

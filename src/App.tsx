@@ -85,9 +85,6 @@ function NavBar() {
           </div>
 
           <div className={`flex items-center gap-4 md:gap-6 ${iconClass}`}>
-            <Link to="/golden-hour" className={`hidden lg:block font-label-caps text-[10px] uppercase tracking-[0.2em] font-medium ${!isHighImpact && location.pathname !== '/' ? 'opacity-100 border-b border-sienna pb-1' : 'opacity-40 hover:opacity-100'}`}>Golden Hour</Link>
-            <Link to="/high-impact" className={`hidden lg:block font-label-caps text-[10px] uppercase tracking-[0.2em] font-medium ${isHighImpact ? 'opacity-100 border-b-2 border-hi-obsidian pb-1' : 'opacity-40 hover:opacity-100'}`}>High Impact</Link>
-            <div className="hidden lg:block w-px h-4 bg-current opacity-20 mx-2"></div>
             <Link to="/cart" className="hover:scale-105 transition-transform focus:outline-none relative flex items-center justify-center p-1 text-current">
               <ShoppingBag size={20} strokeWidth={1.5} />
               <CartIndicator isHighImpact={isHighImpact} />
@@ -102,9 +99,6 @@ function NavBar() {
       {/* Mobile Menu Content */}
       <div className={`md:hidden fixed top-[80px] left-0 w-full h-[calc(100vh-80px)] bg-canvas z-40 transform transition-transform duration-300 ease-in-out ${isMobileMenuOpen ? 'translate-x-0' : '-translate-x-full'} border-t border-obsidian/10`}>
          <div className="flex flex-col p-8 gap-8">
-            <Link onClick={() => setIsMobileMenuOpen(false)} to="/golden-hour" className={`font-label-caps text-sm uppercase tracking-[0.2em] font-medium ${!isHighImpact ? 'text-sienna' : 'text-obsidian/70'}`}>Golden Hour Theme</Link>
-            <Link onClick={() => setIsMobileMenuOpen(false)} to="/high-impact" className={`font-label-caps text-sm uppercase tracking-[0.2em] font-medium ${isHighImpact ? 'text-hi-obsidian font-bold' : 'text-obsidian/70'}`}>High Impact Theme</Link>
-            <div className="w-full h-px bg-obsidian/10 my-4"></div>
             <Link onClick={() => setIsMobileMenuOpen(false)} to="/process" className="font-label-caps text-sm uppercase tracking-[0.2em] font-medium text-on-surface-variant cursor-pointer hover:text-primary">Process</Link>
             <Link onClick={() => setIsMobileMenuOpen(false)} to="/lineup" className="font-label-caps text-sm uppercase tracking-[0.2em] font-medium text-on-surface-variant cursor-pointer hover:text-primary">Lineup</Link>
             <Link onClick={() => setIsMobileMenuOpen(false)} to="/philosophy" className="font-label-caps text-sm uppercase tracking-[0.2em] font-medium text-on-surface-variant cursor-pointer hover:text-primary">Philosophy</Link>

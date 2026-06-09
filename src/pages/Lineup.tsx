@@ -20,11 +20,11 @@ export default function Lineup() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-16">
             {/* Product 1: Black Seed */}
             <div className="group flex flex-col bg-alabaster border border-raw-sienna/10 overflow-hidden transition-all duration-500 hover:shadow-[10px_10px_30px_rgba(74,44,17,0.12)]">
-              <div className="relative h-[60vh] md:h-[70vh] w-full overflow-hidden bg-surface-container-low cursor-pointer">
+              <div className="relative h-[45vh] md:h-[60vh] lg:h-[70vh] w-full overflow-hidden bg-surface-container-low cursor-pointer">
                 <img 
                   alt="Black Seed Oil Bottle" 
                   className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105" 
-                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuBligQc95X6sF9Q2gTrkJlzSAufFuzLWen1WvOwPBP3UKMtk0wUWq2GseGr6DqBJyZVccwXVoe1uD0q-u8VFcC625RfeeJw9LL1uedXFAJ7nWum_0cOGcRhGkTPVxPdGeJJEsXYer5XXkbM0STkj8tZPrC99zHU_Ks6-wOWu3hgVORBOj24Gz5Au04MLylvqTMEw3BvPXoo8CwE-Q1oXv7930nBg9FQw5AcUe9pt-MxiPHs6ogPq84MB23pxYncbTSa4uwzwajDx8i9" 
+                  src="/images/black-seed.png" 
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-obsidian/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-8">
                   <span className="font-label-caps text-label-caps text-canvas tracking-[0.2em] uppercase">Nigella Sativa</span>
@@ -45,11 +45,11 @@ export default function Lineup() {
 
             {/* Product 2: Pumpkin Seed */}
             <div className="group flex flex-col bg-alabaster border border-raw-sienna/10 overflow-hidden transition-all duration-500 hover:shadow-[10px_10px_30px_rgba(74,44,17,0.12)] md:mt-24">
-              <div className="relative h-[60vh] md:h-[70vh] w-full overflow-hidden bg-surface-container-low cursor-pointer">
+              <div className="relative h-[45vh] md:h-[60vh] lg:h-[70vh] w-full overflow-hidden bg-surface-container-low cursor-pointer">
                 <img 
                   alt="Pumpkin Seed Oil Bottle" 
                   className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105" 
-                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuBXxzqz0zNthR48uv2J3fnTFEi6z3X9kIvix_BuCPv5PJ2WPVo-_x8yJ-Go3x76Npc0AP3OVesr8ZsEAGIZbHuwNYb100mYj9Ju5IoRfQVE30DIQTorIUoNAJ3z4M0o6Gi20ToYuLEqSVJhJJPaE5Gv59FssLKsoe2EL4pqPfhtJRz779aAa0m2BBIseWcl0sU0f4doM60ZrlvK9dh8i9KsxRb73FX4Db6hMiJq-dV7sMFXRf6-WYmJ9KNJsSZ43Mv-5E-FmNaq1jWZ" 
+                  src="/images/pumpkin-seed.png" 
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-obsidian/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-8">
                   <span className="font-label-caps text-label-caps text-canvas tracking-[0.2em] uppercase">Cucurbita Pepo</span>
@@ -70,11 +70,11 @@ export default function Lineup() {
 
             {/* Product 3: Castor */}
             <div className="group flex flex-col bg-alabaster border border-raw-sienna/10 overflow-hidden transition-all duration-500 hover:shadow-[10px_10px_30px_rgba(74,44,17,0.12)]">
-              <div className="relative h-[60vh] md:h-[70vh] w-full overflow-hidden bg-surface-container-low cursor-pointer">
+              <div className="relative h-[45vh] md:h-[60vh] lg:h-[70vh] w-full overflow-hidden bg-surface-container-low cursor-pointer">
                 <img 
                   alt="Castor Oil Bottle" 
                   className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105" 
-                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuAYKwtavCU1t79NlUtAD6xIxjIEoriU0JrbicV01DaZs_JWi9yjh8yRKcwMTUPSXIzb5ZBSAgq1QZ4mdau-PfguS8X5UAP89FyUBYODD0Qe_ncz-MGP0_61GfjVwcXxn-uMNFmrraRW4qUJrA02JgTZJJl_glZ6gm9AtwpQwRkVZP5y2qgDJP1Ot_fn5qXujoYjcRUH1TMyWt1ca3XPei-5OYWL1PkLevopQd0CgR_2o9RB1Et92zx9EON8vdNhdWB-mSqnwWFTb93g" 
+                  src="/images/castor.png" 
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-obsidian/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-8">
                   <span className="font-label-caps text-label-caps text-canvas tracking-[0.2em] uppercase">Ricinus Communis</span>
@@ -95,11 +95,11 @@ export default function Lineup() {
 
             {/* Product 4: Rosemary */}
             <div className="group flex flex-col bg-alabaster border border-raw-sienna/10 overflow-hidden transition-all duration-500 hover:shadow-[10px_10px_30px_rgba(74,44,17,0.12)] md:mt-24">
-              <div className="relative h-[60vh] md:h-[70vh] w-full overflow-hidden bg-surface-container-low cursor-pointer">
+              <div className="relative h-[45vh] md:h-[60vh] lg:h-[70vh] w-full overflow-hidden bg-surface-container-low cursor-pointer">
                 <img 
                   alt="Rosemary Oil Bottle" 
                   className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105" 
-                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuA8565CytlF-o4GYPBd77J7kdjezYbNVX03wIJXXY2H6B6w85mvUQ9FBBvWagb16p9F50aCf_BDDetLPsowVWR2mbrnjsCwNivps8w7jz-9p8umF-ot-7IZJb22snvHmmlvZ9ZZ4gu7Pzy_GiStCx69Ql-50uc_LrEJnYHySTJsVrxdWPGS6Efr1g23A7rdmgkuIUS5yhjwIf-0zIZB67mbeISe4eZBe9DrbT-4FwSgbJrLpySt0aje3hKheN6TWclpbMTAE42fOzI8" 
+                  src="/images/rosemary.png" 
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-obsidian/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-8">
                   <span className="font-label-caps text-label-caps text-canvas tracking-[0.2em] uppercase">Salvia Rosmarinus</span>

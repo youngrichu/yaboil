@@ -82,7 +82,7 @@ export default function ProductDetail() {
           id: 'black-seed',
           name: 'Black Seed Oil',
           price: 54.00,
-          image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCGxgAWAt_jY0BelWOq2pzzEkdf0ZZs6UmB7kf53gmeB4SneLRXcfs1JJ2jRoL4Bk3oIzwW9Fv2uGmHBcV-3Qi6DytAievcBxmC3Z4aMrwkb5wXT2FMDhhso7yurbe1X8hQKIqJR74Lh1M2778nkAmin00-NFoQKATKCjhgBmO9zboL4cyaZ8RKIoJYKCarJvpZWhgxvZEA6i-mofXW2riSxrdX2ZaSkxOMMw485wbr2qnECDPBSifYTYYQbJBEt5SphQErdU59hwK4',
+          image: '/images/black-seed.png',
           specs: '120ML / 4OZ',
           quantity: 1
         });
@@ -107,7 +107,7 @@ export default function ProductDetail() {
               <img 
                 alt="Black Seed Oil Product Shot" 
                 className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.02] shadow-[12px_16px_32px_-8px_rgba(74,44,17,0.08)]" 
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCGxgAWAt_jY0BelWOq2pzzEkdf0ZZs6UmB7kf53gmeB4SneLRXcfs1JJ2jRoL4Bk3oIzwW9Fv2uGmHBcV-3Qi6DytAievcBxmC3Z4aMrwkb5wXT2FMDhhso7yurbe1X8hQKIqJR74Lh1M2778nkAmin00-NFoQKATKCjhgBmO9zboL4cyaZ8RKIoJYKCarJvpZWhgxvZEA6i-mofXW2riSxrdX2ZaSkxOMMw485wbr2qnECDPBSifYTYYQbJBEt5SphQErdU59hwK4" 
+                src="/images/black-seed.png" 
               />
             </div>
           </div>
@@ -216,7 +216,7 @@ export default function ProductDetail() {
       <div className="fixed bottom-0 left-0 right-0 md:hidden bg-canvas/90 backdrop-blur-md px-page-margin-mobile py-4 border-t border-raw-sienna/10 flex items-center justify-between z-50 gap-4">
         {cartQuantity > 0 ? (
           <div className="flex items-center justify-between w-full gap-4">
-            <div className="flex items-center border border-raw-sienna/30 px-3 py-2 space-x-4 bg-canvas justify-between w-[150px]">
+            <div className="flex items-center border border-raw-sienna/30 px-3 py-2 space-x-4 bg-canvas justify-between flex-1 min-w-0">
               <button 
                 onClick={() => handleUpdateQuantity(-1)}
                 className="text-on-surface-variant hover:text-raw-sienna p-1"

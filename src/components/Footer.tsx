@@ -9,7 +9,7 @@ export default function Footer() {
                 </div>
                 <p className="font-body-md text-canvas/80">Redefining slow beauty through artisanal botanical mastery. Sustainably sourced, hand-poured in small batches.</p>
             </div>
-            <div className="grid grid-cols-2 gap-x-12 gap-y-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-12 gap-y-4">
                 <div className="space-y-4">
                     <h4 className="font-label-caps text-label-caps text-canvas/60 uppercase tracking-widest">Company</h4>
                     <ul className="space-y-3 font-body-md text-body-md text-canvas/80">
