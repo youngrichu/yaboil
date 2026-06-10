@@ -73,6 +73,15 @@ interface ShowcaseCardProps {
 }
 
 function ShowcaseCard({ product, offset, isActive, isAdjacent, rotateX, rotateY, onMouseMove, onMouseLeave, onClick, key }: ShowcaseCardProps) {
+  // When the circular deck wraps, a card's offset jumps by more than 1
+  // (e.g. -1 → +2). Animating that jump sweeps the card across the visible
+  // carousel, so snap position/rotation and only animate opacity/scale.
+  const prevOffset = useRef(offset);
+  const wrapped = Math.abs(offset - prevOffset.current) > 1;
+  useEffect(() => {
+    prevOffset.current = offset;
+  }, [offset]);
+
   return (
     <div
       style={{
@@ -91,7 +100,11 @@ function ShowcaseCard({ product, offset, isActive, isAdjacent, rotateX, rotateY,
           opacity: isActive ? 1 : isAdjacent ? 0.55 : 0,
           rotate: isActive ? 0 : offset > 0 ? 18 : -22,
         }}
-        transition={{ duration: 1.0, ease: [0.16, 1, 0.3, 1] }}
+        transition={{
+          duration: 1.0,
+          ease: [0.16, 1, 0.3, 1],
+          ...(wrapped && { x: { duration: 0 }, rotate: { duration: 0 } }),
+        }}
         className="w-[200px] sm:w-[260px] md:w-[340px] aspect-[3/4] rounded-[100px_100px_16px_16px] overflow-hidden border border-deep-bark/5 bg-canvas select-none shadow-[20px_30px_60px_-15px_rgba(74,44,17,0.15)] flex flex-col justify-between"
       >
         <motion.div
@@ -245,7 +258,7 @@ export default function CinematicShowcase() {
       onTouchEnd={handleTouchEnd}
       animate={{ background: bgGradients[activeIndex] }}
       transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
-      className="relative min-h-[95vh] flex flex-col justify-between overflow-hidden py-16 md:py-24 px-6 md:px-12 transition-all duration-1000"
+      className="relative min-h-[95vh] flex flex-col justify-between overflow-hidden py-16 md:py-24 px-6 md:px-12"
     >
       {/* Background Kinetic Typography */}
       <div className="absolute inset-0 flex flex-col justify-center gap-16 pointer-events-none select-none z-0 overflow-hidden">
