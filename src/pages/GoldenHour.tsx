@@ -1,3 +1,5 @@
+import { IMAGES } from '../config/images';
+
 export default function GoldenHour() {
   return (
     <div className="flex flex-col lg:flex-row w-full max-w-[1440px] mx-auto min-h-[calc(100vh-80px)] bg-canvas text-obsidian pt-[80px]">
@@ -34,7 +36,7 @@ export default function GoldenHour() {
             </div>
             
             <div className="bg-canvas border border-obsidian/5 rounded-sm p-16 flex items-center justify-center mb-12">
-              <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDzgCXCjMQDhM_3AmfAgrcutPqhuZOxj-LhW9QEfxEhZn7Ua7b5W3ql1k4Wo5lX_cgdjoANQva3GX2xBF762mP5qiNokipxqIEr6q2Sst_QVsNQF1T-T33D-HDyqAC8rTe4_kIFOXW9lzmPJpSDhCNYv691pnQK6k29aEDpuEuoCOyCM1l3Kfk4eEakE353AWwlzZuAey3tjr17C7NhpJ0AuGXJdJIWEt3YELfhZcQbd_S8IvHdjGoe8zTZ5c0EjjTR2K21QIgFEyum" alt="YabOil Mark" className="w-64 h-64 mix-blend-multiply object-contain" />
+              <img src={IMAGES.yaboilMark} alt="YabOil Mark" className="w-64 h-64 mix-blend-multiply object-contain" />
             </div>
 
             <div className="flex flex-col xl:flex-row gap-12">
@@ -145,10 +147,10 @@ export default function GoldenHour() {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-16">
-               <img src="/images/black-seed.png" alt="Black Seed" className="w-full aspect-[4/5] object-cover bg-surface-container" />
-               <img src="/images/rosemary.png" alt="Rosemary" className="w-full aspect-[4/5] object-cover bg-surface-container" />
-               <img src="/images/pumpkin-seed.png" alt="Pumpkin" className="w-full aspect-[4/5] object-cover bg-surface-container" />
-               <img src="/images/castor.png" alt="Castor" className="w-full aspect-[4/5] object-cover bg-surface-container" />
+               <img src={IMAGES.blackSeed} alt="Black Seed" className="w-full aspect-[4/5] object-cover bg-surface-container" />
+               <img src={IMAGES.rosemary} alt="Rosemary" className="w-full aspect-[4/5] object-cover bg-surface-container" />
+               <img src={IMAGES.pumpkinSeed} alt="Pumpkin" className="w-full aspect-[4/5] object-cover bg-surface-container" />
+               <img src={IMAGES.castor} alt="Castor" className="w-full aspect-[4/5] object-cover bg-surface-container" />
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-24">

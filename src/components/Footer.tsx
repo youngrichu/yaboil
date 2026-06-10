@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { IMAGES } from '../config/images';
 
 const InstagramIcon = () => (
   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
@@ -30,7 +31,7 @@ export default function Footer() {
 
           {/* Brand column */}
           <div className="lg:col-span-1 space-y-6">
-            <img src="/images/yaboil-logo.svg" alt="YabOil" className="h-14 w-auto object-contain brightness-0 invert opacity-90" />
+            <img src={IMAGES.logoSvg} alt="YabOil" className="h-14 w-auto object-contain brightness-0 invert opacity-90" />
             <p className="font-body-md text-sm text-canvas/70 leading-relaxed max-w-xs">
               Small-batch, cold-pressed botanicals for the modern ritual. Sustainably sourced. Hand-poured.
             </p>

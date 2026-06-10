@@ -1,13 +1,14 @@
 import ProductDetailLayout from '../components/ProductDetailLayout';
+import { IMAGES } from '../config/images';
 
 const product = {
   id: 'black-seed',
   name: 'Black Seed Oil',
   price: 54.00,
   specs: '120ML / 4OZ',
-  image: '/images/black-seed.png',
+  image: IMAGES.blackSeed,
   imageAlt: 'Black Seed Oil Product Shot',
-  illustration: '/images/illustrations/nigella-sativa.jpg',
+  illustration: IMAGES.nigellaSativa,
   description: 'A potent, ancient remedy cold-pressed from Nigella Sativa seeds. Known as the "seed of blessing," this deep amber oil is rich in thymoquinone, offering unparalleled antioxidant protection and restorative vitality for both hair and skin.',
   sections: [
     { title: 'The Absolute Potency', body: 'Naturally fortifying, this oil acts as a profound systemic balancer.' },

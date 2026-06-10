@@ -2,6 +2,7 @@ import { motion } from 'motion/react';
 import { ArrowLeft } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import Footer from '../components/Footer';
+import { IMAGES } from '../config/images';
 
 export default function HarvestingDesertDetail() {
   const pageTransition = {
@@ -88,7 +89,7 @@ export default function HarvestingDesertDetail() {
               <img 
                 alt="Cinematic arid landscape of resilient botanical plant source for black seeds in the desert" 
                 className="w-full h-full object-cover transition-transform duration-1000 ease-out group-hover:scale-[1.02] grayscale-[15%] sepia-[10%]" 
-                src="/images/black-seed.png"
+                src={IMAGES.blackSeed}
               />
               <div className="absolute inset-0 bg-deep-bark/5 pointer-events-none" />
             </div>

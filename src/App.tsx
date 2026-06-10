@@ -15,6 +15,7 @@ import Privacy from './pages/Privacy';
 import Terms from './pages/Terms';
 import { ShoppingBag, Menu, X } from 'lucide-react';
 import CustomCursor from './components/CustomCursor';
+import { IMAGES } from './config/images';
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -76,7 +77,7 @@ function NavBar() {
               {isMobileMenuOpen ? <X size={24} className={iconClass} /> : <Menu size={24} className={iconClass} />}
             </button>
             <Link to="/" className={`text-2xl font-bold tracking-tight flex items-center gap-4 ${textClass}`}>
-              <img src="/images/yaboil-logo.svg" alt="YabOil Logo" className="h-10 w-10 md:h-12 md:w-12 object-contain" />
+              <img src={IMAGES.logoSvg} alt="YabOil Logo" className="h-10 w-10 md:h-12 md:w-12 object-contain" />
               <span className="hidden lg:block text-headline-md tracking-tighter">YabOil</span>
             </Link>
           </div>

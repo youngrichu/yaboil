@@ -6,6 +6,7 @@ export default function CustomCursor() {
   const [state, setState] = useState<'default' | 'hover' | 'drag' | 'text'>('default');
   const [label, setLabel] = useState('');
   const labelTimeout = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const [isTouchDevice, setIsTouchDevice] = useState(false);
 
   const rawX = useMotionValue(-200);
   const rawY = useMotionValue(-200);
@@ -16,6 +17,12 @@ export default function CustomCursor() {
   const ringY = useSpring(rawY, { stiffness: 180, damping: 28, mass: 0.6 });
 
   useEffect(() => {
+    const hasTouch = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+    setIsTouchDevice(hasTouch);
+  }, []);
+
+  useEffect(() => {
+    if (isTouchDevice) return;
     const onMove = (e: MouseEvent) => {
       rawX.set(e.clientX);
       rawY.set(e.clientY);
@@ -59,11 +66,13 @@ export default function CustomCursor() {
       document.removeEventListener('mouseenter', onEnter);
       if (labelTimeout.current) clearTimeout(labelTimeout.current);
     };
-  }, [visible]);
+  }, [visible, isTouchDevice]);
 
   const ringSize = state === 'hover' ? 56 : state === 'drag' ? 72 : state === 'text' ? 4 : 36;
   const dotSize = state === 'text' ? 24 : state === 'hover' ? 5 : 5;
   const ringBorder = state === 'hover' ? 1.5 : 1;
+
+  if (isTouchDevice) return null;
 
   return (
     <>

@@ -1,13 +1,14 @@
 import ProductDetailLayout from '../components/ProductDetailLayout';
+import { IMAGES } from '../config/images';
 
 const product = {
   id: 'pumpkin-seed',
   name: 'Pumpkin Seed Oil',
   price: 42.00,
   specs: '250ML / 4OZ',
-  image: '/images/pumpkin-seed.png',
+  image: IMAGES.pumpkinSeed,
   imageAlt: 'Pumpkin Seed Oil Product Shot',
-  illustration: '/images/illustrations/pumpkin-vine.jpg',
+  illustration: IMAGES.pumpkinVine,
   description: 'Pressed from organic Styrian pumpkin seeds, this nutrient-dense oil is abundant in zinc, omega fatty acids, and skin-firming vitamins. It delivers a radiant, lightweight dewiness while deeply nourishing the lipid barrier for long-term hydration.',
   sections: [
     { title: 'The Nutrient Powerhouse', body: 'Rich in zinc, Omega-3, 6, and 9 fatty acids, this oil supports collagen production, cellular repair, and lasting moisture retention — delivering a visible glow with every application.' },

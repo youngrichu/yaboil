@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import Footer from '../components/Footer';
 import EmptyCart from '../components/EmptyCart';
 import CheckoutDrawer from '../components/CheckoutDrawer';
+import { IMAGES } from '../config/images';
 
 interface CartItem {
   id: string;
@@ -61,7 +62,7 @@ export default function Cart() {
         id: 'verdant-essence',
         name: 'Verdant Essence Oil',
         price: 84.00,
-        image: '/images/rosemary.png',
+        image: IMAGES.rosemary,
         specs: '100ML | HAND-POURED',
         quantity: 1,
       },
@@ -69,7 +70,7 @@ export default function Cart() {
         id: 'ancient-resin',
         name: 'Ancient Resin Cleanser',
         price: 62.00,
-        image: '/images/castor.png',
+        image: IMAGES.castor,
         specs: '200ML | ORGANIC BASE',
         quantity: 1,
       }

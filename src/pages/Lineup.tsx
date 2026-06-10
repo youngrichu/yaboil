@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Footer from '../components/Footer';
+import { IMAGES } from '../config/images';
 
 interface Product {
   name: string;
@@ -20,7 +21,7 @@ const products: Product[] = [
     price: 48,
     description: 'Cold-pressed for maximum potency. Renowned for its dense antioxidant profile and deeply restorative properties.',
     origin: 'Egypt',
-    image: '/images/black-seed.png',
+    image: IMAGES.blackSeed,
     link: '/product/black-seed',
   },
   {
@@ -29,7 +30,7 @@ const products: Product[] = [
     price: 42,
     description: 'Rich in zinc and essential fatty acids. A deeply nourishing, lightweight oil ideal for sensitive skin profiles.',
     origin: 'Austria',
-    image: '/images/pumpkin-seed.png',
+    image: IMAGES.pumpkinSeed,
     link: '/product/pumpkin-seed',
     offset: true,
   },
@@ -39,7 +40,7 @@ const products: Product[] = [
     price: 38,
     description: 'Hexane-free and unrefined. A dense, humectant barrier oil traditional used for fortifying hair and brows.',
     origin: 'India',
-    image: '/images/castor.png',
+    image: IMAGES.castor,
     link: '/product',
   },
   {
@@ -48,7 +49,7 @@ const products: Product[] = [
     price: 55,
     description: 'Steam-distilled pure essential extract. Invigorating and clarifying, celebrated for stimulating scalp vitality.',
     origin: 'Spain',
-    image: '/images/rosemary.png',
+    image: IMAGES.rosemary,
     link: '/product',
     offset: true,
   },
@@ -87,8 +88,8 @@ export default function Lineup() {
     <>
       <main className="flex-grow flex flex-col pt-32 lg:pt-40">
         <section className="w-full px-page-margin-mobile md:px-page-margin-desktop py-12 md:py-section-gap max-w-screen-2xl mx-auto flex flex-col items-center text-center relative overflow-hidden">
-          <img src="/images/illustrations/castor.jpg" aria-hidden="true" alt="" className="absolute top-0 left-0 w-[260px] h-auto opacity-[0.13] mix-blend-multiply pointer-events-none select-none hidden lg:block [mask-image:radial-gradient(ellipse_at_top_left,black_25%,transparent_68%)]" />
-          <img src="/images/illustrations/castor.jpg" aria-hidden="true" alt="" className="absolute top-0 right-0 w-[260px] h-auto opacity-[0.13] mix-blend-multiply pointer-events-none select-none hidden lg:block [mask-image:radial-gradient(ellipse_at_top_right,black_25%,transparent_68%)]" />
+          <img src={IMAGES.castorIllustration} aria-hidden="true" alt="" className="absolute top-0 left-0 w-[260px] h-auto opacity-[0.13] mix-blend-multiply pointer-events-none select-none hidden lg:block [mask-image:radial-gradient(ellipse_at_top_left,black_25%,transparent_68%)]" />
+          <img src={IMAGES.castorIllustration} aria-hidden="true" alt="" className="absolute top-0 right-0 w-[260px] h-auto opacity-[0.13] mix-blend-multiply pointer-events-none select-none hidden lg:block [mask-image:radial-gradient(ellipse_at_top_right,black_25%,transparent_68%)]" />
           <h1 className="font-serif text-headline-lg-mobile md:text-display-lg text-deep-bark mb-6 max-w-4xl tracking-tight relative z-10">The Artisanal Lineup</h1>
           <p className="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto leading-relaxed relative z-10">
             Four exceptional botanicals, cold-pressed in small batches. Each bottle represents a commitment to purity, capturing the essence of organic agriculture through meticulous extraction processes.
@@ -96,7 +97,7 @@ export default function Lineup() {
         </section>
 
         <section className="w-full px-page-margin-mobile md:px-page-margin-desktop pb-section-gap max-w-screen-2xl mx-auto relative overflow-hidden">
-          <img src="/images/illustrations/pumpkin-vine.jpg" aria-hidden="true" alt="" className="absolute bottom-0 right-0 w-[240px] h-auto opacity-[0.11] mix-blend-multiply pointer-events-none select-none hidden lg:block [filter:sepia(0.8)_saturate(0.5)] [mask-image:radial-gradient(ellipse_at_bottom_right,black_25%,transparent_70%)]" />
+          <img src={IMAGES.pumpkinVine} aria-hidden="true" alt="" className="absolute bottom-0 right-0 w-[240px] h-auto opacity-[0.11] mix-blend-multiply pointer-events-none select-none hidden lg:block [filter:sepia(0.8)_saturate(0.5)] [mask-image:radial-gradient(ellipse_at_bottom_right,black_25%,transparent_70%)]" />
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-16 relative z-10">
             {products.map((product) => (
               <LineupCard key={product.name} product={product} />

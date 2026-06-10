@@ -1,3 +1,5 @@
+import { IMAGES } from '../config/images';
+
 export default function HighImpact() {
   return (
     <div className="flex flex-col lg:flex-row w-full max-w-[1280px] mx-auto min-h-[calc(100vh-80px)] bg-hi-surface text-hi-obsidian font-sans pt-[80px]">
@@ -35,7 +37,7 @@ export default function HighImpact() {
             </div>
             
             <div className="border-2 border-hi-obsidian bg-hi-surface p-12 mb-12 flex justify-center shadow-[8px_8px_0px_#1b1c1c]">
-              <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDzgCXCjMQDhM_3AmfAgrcutPqhuZOxj-LhW9QEfxEhZn7Ua7b5W3ql1k4Wo5lX_cgdjoANQva3GX2xBF762mP5qiNokipxqIEr6q2Sst_QVsNQF1T-T33D-HDyqAC8rTe4_kIFOXW9lzmPJpSDhCNYv691pnQK6k29aEDpuEuoCOyCM1l3Kfk4eEakE353AWwlzZuAey3tjr17C7NhpJ0AuGXJdJIWEt3YELfhZcQbd_S8IvHdjGoe8zTZ5c0EjjTR2K21QIgFEyum" alt="YabOil Mark" className="w-64 h-64 mix-blend-multiply grayscale contrast-125 object-contain" />
+              <img src={IMAGES.yaboilMark} alt="YabOil Mark" className="w-64 h-64 mix-blend-multiply grayscale contrast-125 object-contain" />
             </div>
 
             <div className="flex flex-col xl:flex-row gap-8">
@@ -122,10 +124,10 @@ export default function HighImpact() {
             </div>
 
             <div className="relative w-full border-2 border-hi-obsidian mb-16 overflow-hidden grid grid-cols-2 lg:grid-cols-4 grayscale contrast-125 bg-surface-container">
-               <img src="/images/black-seed.png" alt="Black Seed" className="w-full aspect-square object-cover border-r-2 border-b-2 lg:border-b-0 border-hi-obsidian" />
-               <img src="/images/rosemary.png" alt="Rosemary" className="w-full aspect-square object-cover lg:border-r-2 lg:border-b-0 border-b-2 border-hi-obsidian" />
-               <img src="/images/pumpkin-seed.png" alt="Pumpkin Seed" className="w-full aspect-square object-cover border-r-2 border-hi-obsidian" />
-               <img src="/images/castor.png" alt="Castor" className="w-full aspect-square object-cover" />
+               <img src={IMAGES.blackSeed} alt="Black Seed" className="w-full aspect-square object-cover border-r-2 border-b-2 lg:border-b-0 border-hi-obsidian" />
+               <img src={IMAGES.rosemary} alt="Rosemary" className="w-full aspect-square object-cover lg:border-r-2 lg:border-b-0 border-b-2 border-hi-obsidian" />
+               <img src={IMAGES.pumpkinSeed} alt="Pumpkin Seed" className="w-full aspect-square object-cover border-r-2 border-hi-obsidian" />
+               <img src={IMAGES.castor} alt="Castor" className="w-full aspect-square object-cover" />
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12 border-t-2 border-hi-obsidian pt-12 mt-12 relative">

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Link } from 'react-router-dom';
 import Footer from '../components/Footer';
+import { IMAGES } from '../config/images';
 
 interface Article {
   id: string;
@@ -26,7 +27,7 @@ export default function Journal() {
       date: 'SEPTEMBER 12, 2023',
       title: 'The Alchemy of Cold Pressing',
       description: 'In the quiet before dawn, the extraction begins. We explore the meticulous process of cold-pressing botanical seeds, a preservation of soul and potency that defines the Essence ethos.',
-      image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCYib7i99dSqQ6SJ3P8HhKBjJ3gsSRtDyRwBfczS2zmBYxoRypBGt_X69Z-vPEZjq8QpYKrYlvUN9o8neEUcHLkSUSV92AaFZPJVeV_hHsgXDW53xY2xR9mWKnrwVXhmXlzJ7Rh-RNAXdTrdWp72aMyl9dqgFmw-0ywum8SRmKUMfussqkJAyMahj6PW-Q9cwn8QjS22iNvkWy31y6tYF6e4aLOPM0VzhQ1X0hJcbiX2XOtCiA4-sPvy2cobBLeFtm0WEx5Vshroeco',
+      image: IMAGES.alchemyPressing,
     },
     {
       id: 'evening-scalp-ritual',
@@ -147,7 +148,7 @@ export default function Journal() {
                   <img 
                     alt="Harvesting the Desert: Black Seed Sourcing" 
                     className="w-full h-full object-cover transition-transform duration-1000 ease-out group-hover:scale-103 grayscale-[25%] sepia-[12%]" 
-                    src="/images/black-seed.png"
+                    src={IMAGES.blackSeed}
                   />
                 </div>
               </Link>

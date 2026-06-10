@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'motion/react';
 import Footer from '../components/Footer';
+import { IMAGES } from '../config/images';
 
 interface Step {
   number: string;
@@ -25,9 +26,9 @@ const steps: Step[] = [
     body: 'Our process begins at peak vitality. Botanicals are hand-selected during the late afternoon, ensuring optimal essential oil concentration. We prioritize sustainable foraging, working in harmony with the natural rhythms of the earth.',
     icon: 'grass',
     iconLabel: 'Organic Matter',
-    image: '/images/rosemary.png',
+    image: IMAGES.rosemary,
     imageAlt: 'Harvesting Botanicals',
-    illustration: '/images/illustrations/herb-rosemary.jpg',
+    illustration: IMAGES.herbRosemary,
     illustrationPos: 'bottom-0 right-0',
     illustrationMask: '[mask-image:radial-gradient(ellipse_at_bottom_right,black_25%,transparent_68%)]',
   },
@@ -38,9 +39,9 @@ const steps: Step[] = [
     body: 'We employ a traditional cold-press methodology. By avoiding heat, we preserve the delicate lipid profiles and volatile aromatics of the raw ingredients. It is a slow, methodical yield that prioritizes quality over quantity.',
     icon: 'water_drop',
     iconLabel: 'Pure Yield',
-    image: '/images/black-seed.png',
+    image: IMAGES.blackSeed,
     imageAlt: 'Cold Pressing Process',
-    illustration: '/images/illustrations/castor.jpg',
+    illustration: IMAGES.castorIllustration,
     illustrationPos: 'top-0 left-0',
     illustrationMask: '[mask-image:radial-gradient(ellipse_at_top_left,black_25%,transparent_68%)]',
     reverse: true,
@@ -52,9 +53,9 @@ const steps: Step[] = [
     body: 'Each micro-batch is immediately decanted into UV-protective amber glass. This final step seals in the efficacy and aroma, protecting the delicate molecular structure from degradation until it reaches your hands.',
     icon: 'science',
     iconLabel: 'UV Protected',
-    image: '/images/collection.png',
+    image: IMAGES.collection,
     imageAlt: 'Bottling the Oil',
-    illustration: '/images/illustrations/herb-rosemary.jpg',
+    illustration: IMAGES.herbRosemary,
     illustrationPos: 'bottom-0 left-0',
     illustrationMask: '[mask-image:radial-gradient(ellipse_at_bottom_left,black_25%,transparent_68%)]',
   },
@@ -113,8 +114,8 @@ export default function Process() {
     <div className="bg-canvas text-on-surface antialiased selection:bg-raw-sienna selection:text-canvas min-h-screen flex flex-col pt-20">
       <main className="flex-grow pt-12 pb-section-gap px-page-margin-mobile md:px-page-margin-desktop max-w-screen-2xl mx-auto w-full">
         <div className="relative overflow-hidden">
-          <img src="/images/illustrations/nigella-sativa.jpg" aria-hidden="true" alt="" className="absolute top-0 right-0 w-[240px] h-auto opacity-[0.13] mix-blend-multiply pointer-events-none select-none hidden lg:block [mask-image:radial-gradient(ellipse_at_top_right,black_25%,transparent_68%)]" />
-          <img src="/images/illustrations/nigella-sativa.jpg" aria-hidden="true" alt="" className="absolute top-0 left-0 w-[240px] h-auto opacity-[0.13] mix-blend-multiply pointer-events-none select-none hidden lg:block [mask-image:radial-gradient(ellipse_at_top_left,black_25%,transparent_68%)]" />
+          <img src={IMAGES.nigellaSativa} aria-hidden="true" alt="" className="absolute top-0 right-0 w-[240px] h-auto opacity-[0.13] mix-blend-multiply pointer-events-none select-none hidden lg:block [mask-image:radial-gradient(ellipse_at_top_right,black_25%,transparent_68%)]" />
+          <img src={IMAGES.nigellaSativa} aria-hidden="true" alt="" className="absolute top-0 left-0 w-[240px] h-auto opacity-[0.13] mix-blend-multiply pointer-events-none select-none hidden lg:block [mask-image:radial-gradient(ellipse_at_top_left,black_25%,transparent_68%)]" />
           <motion.section
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}

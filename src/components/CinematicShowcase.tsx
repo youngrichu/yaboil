@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'motion/react';
 import { ShoppingBag, ArrowLeft, ArrowRight, Check, Loader2 } from 'lucide-react';
+import { IMAGES } from '../config/images';
 
 const products = [
   {
@@ -12,7 +13,7 @@ const products = [
     price: 42.00,
     tag: "Best Seller",
     bgText: "ROSEMARY",
-    img: "/images/rosemary.png",
+    img: IMAGES.rosemary,
     link: "/product",
     spec: "60ML / 2OZ"
   },
@@ -23,7 +24,7 @@ const products = [
     longDesc: "Cold-pressed from Nigella Sativa seeds. A dense antioxidant powerhouse that heals the skin barrier, reduces redness, and deeply restores.",
     price: 48.00,
     bgText: "NIGELLA",
-    img: "/images/black-seed.png",
+    img: IMAGES.blackSeed,
     link: "/product/black-seed",
     spec: "120ML / 4OZ"
   },
@@ -34,7 +35,7 @@ const products = [
     longDesc: "Pressed from organic Styrian pumpkin seeds. Abundant in zinc and skin-firming vitamins, delivering a radiant, lightweight dewiness.",
     price: 38.00,
     bgText: "PUMPKIN",
-    img: "/images/pumpkin-seed.png",
+    img: IMAGES.pumpkinSeed,
     link: "/product/pumpkin-seed",
     spec: "120ML / 4OZ"
   },
@@ -45,7 +46,7 @@ const products = [
     longDesc: "Thick, hexane-free organic castor seed press. An ancient humectant shield that fortifies hair shafts and promotes lush growth.",
     price: 34.00,
     bgText: "CASTOR",
-    img: "/images/castor.png",
+    img: IMAGES.castor,
     link: "/product",
     spec: "60ML / 2OZ"
   }

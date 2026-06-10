@@ -1,4 +1,5 @@
 import Footer from '../components/Footer';
+import { IMAGES } from '../config/images';
 
 export default function Philosophy() {
   return (
@@ -6,11 +7,11 @@ export default function Philosophy() {
       {/* Hero Section */}
       <header className="relative min-h-[90vh] flex items-center justify-center pt-32 pb-section-gap px-page-margin-mobile md:px-page-margin-desktop overflow-hidden">
         <div className="absolute inset-0 z-0">
-          <img alt="Warm sunlight hitting botanical leaves." className="w-full h-full object-cover opacity-20" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA-p5YZeyZkHHNnBWCNG78nQze3vH8TcxU4ZyjeNvRAkMnCPE5F2EiE4Pxy1zuOCDUTgG5xcH6Iehsa9yMk_VG0lrpjUhD7BgVLuEIc09IJ6VsCWWhvbOOxJlSjppoDyRbDNdrw0hUTGwMJk7_L5ufdxOncpEP9YvwmdJE-IUHvhxxLgNPtK2WWUKhOGlNVI5YljmK4LsG2Qjmeqd_8DxNYpeCgom_GWcKehp1UeqP3KvfYsirkZgbmxgZwbWo5fK9EIdMJF9ym-b0x" />
+          <img alt="Warm sunlight hitting botanical leaves." className="w-full h-full object-cover opacity-20" src={IMAGES.philosophyHero} />
           <div className="absolute inset-0 bg-gradient-to-b from-canvas/20 via-canvas/40 to-canvas/80"></div>
         </div>
         <div className="relative z-10 text-center max-w-4xl mx-auto flex flex-col items-center">
-          <img alt="YabOil Logo" className="w-24 h-24 object-contain mb-8 opacity-80" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDWdkkVRExRBGCddQwfSLXD-SkbHc63dPMwFP1B_qXd73WNRZg_j-gQYDbllQ8UCG51aBYymD_WNbCrUSpZ8Ox8D4ML5t5rP6kXEpIXIh08cIoVmqsRDbgZp5uMDGd9Du2ewM8hNT9_0ja3HtF5iZ7NgRiCSVYUHuOELl8XEKGlebkfQKHu-aWjWq2IHWq8YHwRKLlGnyTsklSoyZA-Cil-ReClcmKkje9RCzaFdxjKOrQT25j67ZZJDVQYnvoB13OMRRC2rHVYWwpx" />
+          <img alt="YabOil Logo" className="w-24 h-24 object-contain mb-8 opacity-80" src={IMAGES.philosophyLogo} />
           <h1 className="font-serif text-headline-lg-mobile md:text-display-lg text-deep-bark mb-6 tracking-tight">The Art of Slow Beauty</h1>
           <p className="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto mb-10 leading-relaxed">
             Naturally Pressed, Small-Batch Botanicals. A return to intention, honoring the raw rhythm of nature through meticulous, unhurried craftsmanship.
@@ -36,7 +37,7 @@ export default function Philosophy() {
             </div>
             <div className="md:col-span-12 lg:col-span-6 order-1 lg:order-2 mb-10 lg:mb-0">
               <div className="relative aspect-[4/5] w-full overflow-hidden golden-shadow group">
-                <img alt="Sun-drenched raw materials being processed." className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA1hZjQhZkUA_FR7pCZaYpvFuMjvBFRMQD2n4kd4BJpQQJ3wEcF92058h6UW3_eU37VcdoCegkUoAa4DRXwgWIR3NIg_9D41o0EnAKIEuB1JC3TEzBCCb8av5XRi4r-z4q5hjAi7XZEO1JPJYzeRVPosziKWYKmtLUGdGzprqPk-ladINHKck5YWYjnSXMvtKHppA2K4QL17DfZTF4C378ZhVs7P67M-zh06pwfw1TliionbUh34j8CMSXZYFT2GQwH9uxW8kZR0quc" />
+                <img alt="Sun-drenched raw materials being processed." className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src={IMAGES.sunDrenched} />
               </div>
             </div>
           </div>
@@ -44,7 +45,7 @@ export default function Philosophy() {
 
         {/* Methodology Highlights */}
         <section className="py-section-gap bg-surface-container-low px-page-margin-mobile md:px-page-margin-desktop border-y border-outline/10 relative overflow-hidden">
-          <img src="/images/illustrations/castor.jpg" aria-hidden="true" alt="" className="absolute top-0 right-0 w-[260px] h-auto opacity-[0.13] mix-blend-multiply pointer-events-none select-none hidden lg:block [mask-image:radial-gradient(ellipse_at_top_right,black_25%,transparent_70%)]" />
+          <img src={IMAGES.castorIllustration} aria-hidden="true" alt="" className="absolute top-0 right-0 w-[260px] h-auto opacity-[0.13] mix-blend-multiply pointer-events-none select-none hidden lg:block [mask-image:radial-gradient(ellipse_at_top_right,black_25%,transparent_70%)]" />
           <div className="max-w-7xl mx-auto relative z-10">
             <div className="text-center mb-16">
               <span className="font-label-caps text-label-caps tracking-widest uppercase text-raw-sienna mb-4 block">Methodology</span>
@@ -81,11 +82,11 @@ export default function Philosophy() {
 
         {/* Sourcing Commitment */}
         <section className="py-section-gap px-page-margin-mobile md:px-page-margin-desktop relative overflow-hidden">
-          <img src="/images/illustrations/herb-rosemary.jpg" aria-hidden="true" alt="" className="absolute bottom-0 left-0 w-[260px] h-auto opacity-[0.13] mix-blend-multiply pointer-events-none select-none hidden lg:block [mask-image:radial-gradient(ellipse_at_bottom_left,black_25%,transparent_70%)]" />
+          <img src={IMAGES.herbRosemary} aria-hidden="true" alt="" className="absolute bottom-0 left-0 w-[260px] h-auto opacity-[0.13] mix-blend-multiply pointer-events-none select-none hidden lg:block [mask-image:radial-gradient(ellipse_at_bottom_left,black_25%,transparent_70%)]" />
           <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 lg:gap-16 items-center relative z-10">
             <div className="md:col-span-12 lg:col-span-6 mb-10 lg:mb-0 relative">
               <div className="absolute -inset-4 bg-background -z-10 golden-shadow opacity-50 hidden md:block"></div>
-              <img alt="Hands working with soil and plants." className="w-full aspect-square object-cover golden-shadow" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDFmwg2zuHv_QHBFeR5oydzlo29TvfY0c3uW0ovUHMKBPzL7YZ7kxD76ckcpqFqIUghelU2yEWUtH55IRd9ICzMJFWowsZrw-ITS5bbRtia90bgAELJ-2X70bX6QKHia4nMK57WmKuxJtXjyPR94GC6p-3T76ho4M1VBNqmA4oZQ8bcLAssUBC2MZcoBpG4OTZ1S455ofFVe7Nxc76ZbsEI3R2LNSuBHKJT976p8sQf4cOJHo_cXuDe0Q3MN12fD8J7yv-4umoLVmpm" />
+              <img alt="Hands working with soil and plants." className="w-full aspect-square object-cover golden-shadow" src={IMAGES.soilHands} />
             </div>
             <div className="md:col-span-12 lg:col-span-5 lg:col-start-8 flex flex-col justify-center">
               <span className="font-label-caps text-label-caps text-raw-sienna mb-4 block tracking-widest uppercase">Ethical Sourcing</span>

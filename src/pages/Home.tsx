@@ -2,6 +2,7 @@ import { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import Footer from '../components/Footer';
 import CinematicShowcase from '../components/CinematicShowcase';
+import { IMAGES, VIDEOS } from '../config/images';
 
 export default function Home() {
   const sectionsRef = useRef<(HTMLElement | null)[]>([]);
@@ -46,12 +47,12 @@ export default function Home() {
             loop
             muted
             playsInline
-            poster="/images/hero-poster.jpg"
+            poster={IMAGES.heroPoster}
             ref={(el) => { if (el) el.playbackRate = 0.65; }}
             className="w-full h-full object-cover brightness-[0.98]"
           >
-            <source src="/images/hero-bg.webm" type="video/webm" />
-            <source src="/images/hero-bg-compressed.mp4" type="video/mp4" />
+            <source src={VIDEOS.heroBg} type="video/webm" />
+            <source src={VIDEOS.heroBgCompressed} type="video/mp4" />
           </video>
           <div className="absolute inset-0 bg-deep-bark/30"></div>
           <div className="absolute inset-0 bg-gradient-to-tr from-deep-bark/75 via-deep-bark/40 to-transparent"></div>
@@ -84,13 +85,13 @@ export default function Home() {
         <div className="relative overflow-hidden bg-surface-container-low group min-h-[50vh] md:min-h-full">
           <div className="absolute inset-0 bg-deep-bark/5 z-10 transition-opacity group-hover:opacity-0 pointer-events-none"></div>
           <img
-            src="https://lh3.googleusercontent.com/aida-public/AB6AXuDTYxe61RRkZ7M-dmHY9blpT3Kt05vz9ZwBzpumU072ueB3e_ug07ZJWtj_JR7DtlK-92Fg7lWctM3W9aq5dTx_F-htroALw0EmoXmWAfYijWhMIwDrIFR1yl1eR-FZ99yWo9ID636bUARkOWTuIWRb9z_6Zoyz7tVgnr3DDM0LkcM2mR2lmFDgGfKemUqyOalyWQFbhiglNBAl-QfqQ916oCVv27I5_9K7vRgBulKrodlclKED1sE41M9Ib9oqEWJWLUMmq5fCh2Ak"
+            src={IMAGES.brandStory}
             alt=""
             className="absolute inset-0 w-full h-full object-cover"
           />
         </div>
         <div className="flex items-center justify-center p-page-margin-mobile md:p-page-margin-desktop bg-canvas border-l border-raw-sienna/5 relative overflow-hidden">
-          <img src="/images/illustrations/herb-rosemary.jpg" aria-hidden="true" alt="" className="absolute bottom-0 right-0 w-[260px] h-auto opacity-[0.15] mix-blend-multiply pointer-events-none select-none hidden lg:block [mask-image:radial-gradient(ellipse_at_bottom_right,black_25%,transparent_70%)]" />
+          <img src={IMAGES.herbRosemary} aria-hidden="true" alt="" className="absolute bottom-0 right-0 w-[260px] h-auto opacity-[0.15] mix-blend-multiply pointer-events-none select-none hidden lg:block [mask-image:radial-gradient(ellipse_at_bottom_right,black_25%,transparent_70%)]" />
           <div className="max-w-md space-y-8 relative z-10">
             <span className="font-label-caps text-label-caps text-raw-sienna tracking-[0.3em]">OUR PHILOSOPHY</span>
             <h2 className="font-headline-md text-headline-md text-deep-bark leading-snug">The Artisanal Standard: Naturally Pressed.</h2>
