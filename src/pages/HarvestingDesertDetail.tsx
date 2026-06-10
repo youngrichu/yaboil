@@ -88,7 +88,7 @@ export default function HarvestingDesertDetail() {
               <img 
                 alt="Cinematic arid landscape of resilient botanical plant source for black seeds in the desert" 
                 className="w-full h-full object-cover transition-transform duration-1000 ease-out group-hover:scale-[1.02] grayscale-[15%] sepia-[10%]" 
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuAuD_dgsduL1eH7yp1MxUh1hyJL4rweSp2otrnwMDzK-kb7C09cw7z_lDJ9Qr-CiC8YWWJo8lIsKeJBfL_PZXMJmIx3oZQfi04F6cEuNMeES4491teZkc220JKhO5B9ziiwckEmagK8AiWaxpqKIh3vJmOEho8POIgHYV9kZ-Ly_AclRPY7GNRr0WsSMn0A-z8G1m8KmRxHRFWiCjvfqAB5KRxd99t6IR11JdfVzDtJnc7z0-zili70bbX4eiGvvtmYJACOxvtTPQ4_" 
+                src="/images/black-seed.png"
               />
               <div className="absolute inset-0 bg-deep-bark/5 pointer-events-none" />
             </div>

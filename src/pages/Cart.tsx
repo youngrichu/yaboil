@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { Minus, Plus, Trash2, X, CreditCard, ArrowLeft, Gift, Tag, ShoppingBag, ShieldCheck } from 'lucide-react';
+import { Minus, Plus, Trash2, X, Gift, Tag, ShieldCheck } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import Footer from '../components/Footer';
 import EmptyCart from '../components/EmptyCart';
+import CheckoutDrawer from '../components/CheckoutDrawer';
 
 interface CartItem {
   id: string;
@@ -24,15 +25,18 @@ export default function Cart() {
   const [promoError, setPromoError] = useState<string>('');
   const [isCheckingOut, setIsCheckingOut] = useState(false);
   const [checkoutComplete, setCheckoutComplete] = useState(false);
+  const [whatsappUrl, setWhatsappUrl] = useState('');
   const [formData, setFormData] = useState({
     email: '',
     name: '',
+    phone: '',
     address: '',
     city: '',
     zip: '',
-    cardNumber: '',
-    expiry: '',
-    cvv: ''
+    // FUTURE_PAYMENT: kept for Stripe/online gateway integration
+    // cardNumber: '',
+    // expiry: '',
+    // cvv: '',
   });
 
   // Initialize and synchronize with localStorage if exists or pre-seed items
@@ -131,9 +135,28 @@ export default function Cart() {
 
   const handleCheckoutSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    const itemLines = items.map(i => `• ${i.name} ×${i.quantity} — $${(i.price * i.quantity).toFixed(2)}`).join('\n');
+    const message = [
+      `Hello YabOil 🌿 I'd like to place an order.`,
+      ``,
+      `Name: ${formData.name}`,
+      `Phone: ${formData.phone}`,
+      `Email: ${formData.email}`,
+      `Address: ${formData.address}, ${formData.city} ${formData.zip}`.trim(),
+      ``,
+      `Order:`,
+      itemLines,
+      ``,
+      `Total: $${total.toFixed(2)}`,
+      ``,
+      `Please confirm. Thank you!`,
+    ].join('\n');
+
+    const url = `https://wa.me/251937882928?text=${encodeURIComponent(message)}`;
+    setWhatsappUrl(url);
+    window.open(url, '_blank');
     setIsCheckingOut(false);
     setCheckoutComplete(true);
-    // Clear cart upon complete checkout
     saveCart([]);
     setItems([]);
   };
@@ -364,10 +387,10 @@ export default function Cart() {
                     <div className="flex items-center justify-center gap-4 text-on-surface-variant/40 pt-4 border-t border-raw-sienna/5 select-none font-mono text-[10px]">
                       <span className="flex items-center gap-1">
                         <ShieldCheck size={14} />
-                        SECURE STRIPE
+                        PERSONAL DELIVERY
                       </span>
                       <span>•</span>
-                      <span>256-BIT ENCRYPTION</span>
+                      <span>DIRECT CONTACT</span>
                     </div>
                   </div>
                 </div>
@@ -379,224 +402,18 @@ export default function Cart() {
 
       <Footer />
 
-      {/* Checkout Sidebar/Lightbox Drawer Modal */}
-      <AnimatePresence>
-        {isCheckingOut && (
-          <motion.div 
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-obsidian/75 backdrop-blur-md z-[100] flex items-center justify-end p-0"
-          >
-            <motion.div 
-              initial={{ x: '100%' }}
-              animate={{ x: 0 }}
-              exit={{ x: '100%' }}
-              transition={{ type: "spring", damping: 30, stiffness: 200 }}
-              className="bg-canvas border-l border-raw-sienna/10 max-w-lg w-full h-full p-8 md:p-12 overflow-y-auto relative flex flex-col justify-between"
-            >
-              <div>
-                {/* Close Button */}
-                <button 
-                  onClick={() => setIsCheckingOut(false)}
-                  className="absolute top-6 right-6 text-deep-bark hover:text-raw-sienna transition-colors focus:outline-none cursor-pointer p-1"
-                  aria-label="Close checkout"
-                >
-                  <X size={24} />
-                </button>
-
-                <div className="space-y-6 mb-8 pt-4">
-                  <div>
-                    <span className="font-label-caps text-xs text-raw-sienna uppercase tracking-widest font-semibold block">Checkout Ritual</span>
-                    <h3 className="font-headline-md text-3xl text-deep-bark italic font-medium mt-1">Complete Order</h3>
-                  </div>
-                  
-                  {/* Embedded Order Mini details */}
-                  <div className="bg-surface-container/60 p-4 font-body-md text-sm text-deep-bark flex justify-between items-center">
-                    <span>Vessel summary • {items.reduce((sum, i) => sum + i.quantity, 0)} items</span>
-                    <span className="font-bold">${total.toFixed(2)}</span>
-                  </div>
-                </div>
-
-                <form onSubmit={handleCheckoutSubmit} className="space-y-6">
-                  {/* Shipping Form Fields */}
-                  <div className="space-y-4">
-                    <h4 className="font-label-caps text-xs uppercase tracking-widest font-bold text-deep-bark border-b border-raw-sienna/15 pb-2">
-                      1. Delivery Address
-                    </h4>
-                    
-                    <div>
-                      <label className="font-label-caps text-[9px] text-raw-sienna tracking-wider block mb-1 font-semibold uppercase">EMAIL ADDRESS</label>
-                      <input 
-                        required
-                        type="email" 
-                        value={formData.email}
-                        onChange={(e) => setFormData({...formData, email: e.target.value})}
-                        placeholder="your@email.com" 
-                        className="w-full bg-transparent border-b border-raw-sienna/20 py-2 font-body-md focus:outline-none focus:border-raw-sienna transition-colors text-deep-bark text-sm placeholder:text-on-surface-variant/30 rounded-none focus:ring-0"
-                      />
-                    </div>
-
-                    <div>
-                      <label className="font-label-caps text-[9px] text-raw-sienna tracking-wider block mb-1 font-semibold uppercase">FULL NAME</label>
-                      <input 
-                        required
-                        type="text" 
-                        value={formData.name}
-                        onChange={(e) => setFormData({...formData, name: e.target.value})}
-                        placeholder="Amara Thorne" 
-                        className="w-full bg-transparent border-b border-raw-sienna/20 py-2 font-body-md focus:outline-none focus:border-raw-sienna transition-colors text-deep-bark text-sm placeholder:text-on-surface-variant/30 rounded-none focus:ring-0"
-                      />
-                    </div>
-
-                    <div>
-                      <label className="font-label-caps text-[9px] text-raw-sienna tracking-wider block mb-1 font-semibold uppercase">STREET ADDRESS</label>
-                      <input 
-                        required
-                        type="text" 
-                        value={formData.address}
-                        onChange={(e) => setFormData({...formData, address: e.target.value})}
-                        placeholder="14 heritage sand road" 
-                        className="w-full bg-transparent border-b border-raw-sienna/20 py-2 font-body-md focus:outline-none focus:border-raw-sienna transition-colors text-deep-bark text-sm placeholder:text-on-surface-variant/30 rounded-none focus:ring-0"
-                      />
-                    </div>
-
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                      <div>
-                        <label className="font-label-caps text-[9px] text-raw-sienna tracking-wider block mb-1 font-semibold uppercase">CITY</label>
-                        <input 
-                          required
-                          type="text" 
-                          value={formData.city}
-                          onChange={(e) => setFormData({...formData, city: e.target.value})}
-                          placeholder="Al-Fayyum" 
-                          className="w-full bg-transparent border-b border-raw-sienna/20 py-2 font-body-md focus:outline-none focus:border-raw-sienna transition-colors text-deep-bark text-sm placeholder:text-on-surface-variant/30 rounded-none focus:ring-0"
-                        />
-                      </div>
-                      <div>
-                        <label className="font-label-caps text-[9px] text-raw-sienna tracking-wider block mb-1 font-semibold uppercase">ZIP / POSTAL CODE</label>
-                        <input 
-                          required
-                          type="text" 
-                          value={formData.zip}
-                          onChange={(e) => setFormData({...formData, zip: e.target.value})}
-                          placeholder="12450" 
-                          className="w-full bg-transparent border-b border-raw-sienna/20 py-2 font-body-md focus:outline-none focus:border-raw-sienna transition-colors text-deep-bark text-sm placeholder:text-on-surface-variant/30 rounded-none focus:ring-0"
-                        />
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Payment Details */}
-                  <div className="space-y-4 pt-4">
-                    <h4 className="font-label-caps text-xs uppercase tracking-widest font-bold text-deep-bark border-b border-raw-sienna/15 pb-2">
-                      2. Secured Gateway
-                    </h4>
-
-                    <div>
-                      <label className="font-label-caps text-[9px] text-raw-sienna tracking-wider block mb-1 font-semibold uppercase">CARD NUMBER</label>
-                      <input 
-                        required
-                        type="text" 
-                        maxLength={19}
-                        value={formData.cardNumber}
-                        onChange={(e) => setFormData({...formData, cardNumber: e.target.value})}
-                        placeholder="4242 4242 4242 4242" 
-                        className="w-full bg-transparent border-b border-raw-sienna/20 py-2 font-body-md focus:outline-none focus:border-raw-sienna transition-colors text-deep-bark text-sm placeholder:text-on-surface-variant/30 rounded-none focus:ring-0"
-                      />
-                    </div>
-
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                      <div>
-                        <label className="font-label-caps text-[9px] text-raw-sienna tracking-wider block mb-1 font-semibold uppercase">EXPIRATION DATE</label>
-                        <input 
-                          required
-                          type="text" 
-                          placeholder="MM / YY" 
-                          maxLength={5}
-                          value={formData.expiry}
-                          onChange={(e) => setFormData({...formData, expiry: e.target.value})}
-                          className="w-full bg-transparent border-b border-raw-sienna/20 py-2 font-body-md focus:outline-none focus:border-raw-sienna transition-colors text-deep-bark text-sm placeholder:text-on-surface-variant/30 rounded-none focus:ring-0"
-                        />
-                      </div>
-                      <div>
-                        <label className="font-label-caps text-[9px] text-raw-sienna tracking-wider block mb-1 font-semibold uppercase">CVV SECURITY CODE</label>
-                        <input 
-                          required
-                          type="password" 
-                          maxLength={3}
-                          placeholder="***" 
-                          value={formData.cvv}
-                          onChange={(e) => setFormData({...formData, cvv: e.target.value})}
-                          className="w-full bg-transparent border-b border-raw-sienna/20 py-2 font-body-md focus:outline-none focus:border-raw-sienna transition-colors text-deep-bark text-sm placeholder:text-on-surface-variant/30 rounded-none focus:ring-0"
-                        />
-                      </div>
-                    </div>
-                  </div>
-
-                  <button 
-                    type="submit"
-                    className="w-full bg-deep-bark text-canvas py-4 font-label-caps text-label-caps tracking-widest hover:bg-raw-sienna transition-all duration-300 uppercase font-bold text-center mt-6 cursor-pointer"
-                  >
-                    AUTHORIZE DISPATCH • ${total.toFixed(2)}
-                  </button>
-                </form>
-              </div>
-
-              <div className="pt-8 text-center">
-                <p className="font-label-sm text-[10px] text-on-surface-variant/60 uppercase tracking-widest leading-relaxed">
-                  Thank you for embracing patient, slow beauty.
-                </p>
-              </div>
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-
-      {/* Checkout Success Modal overlay */}
-      <AnimatePresence>
-        {checkoutComplete && (
-          <motion.div 
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-obsidian/95 backdrop-blur-md z-[110] flex items-center justify-center p-4"
-          >
-            <motion.div 
-              initial={{ scale: 0.95, y: 30 }}
-              animate={{ scale: 1, y: 0 }}
-              exit={{ scale: 0.95 }}
-              className="bg-canvas border border-raw-sienna/25 max-w-md w-full p-8 md:p-12 text-center relative golden-shadow"
-            >
-              <div className="space-y-6">
-                <div className="w-16 h-16 rounded-full bg-raw-sienna/10 text-raw-sienna flex items-center justify-center mx-auto">
-                  <span className="material-symbols-outlined text-4xl select-none" style={{ fontVariationSettings: "'FILL' 1" }}>
-                    task_alt
-                  </span>
-                </div>
-
-                <div className="space-y-2">
-                  <span className="font-label-caps text-xs text-raw-sienna uppercase tracking-widest font-semibold block">Selection Confirmed</span>
-                  <h3 className="font-headline-md text-3xl text-deep-bark italic font-medium">Your Extraction Begins</h3>
-                </div>
-
-                <p className="font-body-md text-body-md text-on-surface-variant leading-relaxed">
-                  We have secured your harvest. Our dispatch team is preparing your pure botanical compounds. A transaction ledger and tracking code have been dispatched to your organic address.
-                </p>
-
-                <div className="pt-6">
-                  <button 
-                    onClick={() => setCheckoutComplete(false)}
-                    className="bg-raw-sienna text-canvas px-10 py-4 font-label-caps text-label-caps tracking-widest hover:bg-deep-bark transition-colors uppercase font-bold w-full cursor-pointer select-none"
-                  >
-                    Return to Archive
-                  </button>
-                </div>
-              </div>
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+      <CheckoutDrawer
+        isOpen={isCheckingOut}
+        onClose={() => setIsCheckingOut(false)}
+        itemCount={items.reduce((sum, i) => sum + i.quantity, 0)}
+        total={total}
+        formData={formData}
+        onFormChange={(field, value) => setFormData(prev => ({ ...prev, [field]: value }))}
+        onSubmit={handleCheckoutSubmit}
+        checkoutComplete={checkoutComplete}
+        whatsappUrl={whatsappUrl}
+        onCompleteClose={() => setCheckoutComplete(false)}
+      />
     </div>
   );
 }

@@ -97,6 +97,24 @@ export default function GoldenHour() {
                   <span className="font-sans text-[80px] lg:text-[120px] font-light leading-none">Aa</span>
               </div>
             </div>
+
+            <div className="flex flex-col xl:flex-row gap-8 xl:gap-12 border-t border-obsidian/10 pt-16 mt-16">
+              <div className="w-full xl:w-1/2 bg-canvas border border-obsidian/5 p-12 lg:p-24 flex items-center justify-center">
+                  <span className="font-aligarh text-[80px] lg:text-[120px] leading-none">Aa</span>
+              </div>
+              <div className="w-full xl:w-1/2 flex flex-col justify-center">
+                  <span className="text-[10px] uppercase tracking-[0.2em] font-medium text-sienna mb-4 block">Label / Accent</span>
+                  <h3 className="font-aligarh text-3xl md:text-4xl font-bold mb-2">Aligarh Arabic</h3>
+                  <span className="text-sm italic font-aligarh text-obsidian/60 mb-6 block">Used for refined label accents</span>
+                  <p className="font-sans text-base md:text-lg font-light leading-relaxed text-obsidian/80 mb-8">
+                    Reserved exclusively for product labels, accent typography, and decorative text elements. Its elegant Naskh roots add a layer of artisanal authenticity to secondary branding moments.
+                  </p>
+                  <div className="border-l-2 border-sienna pl-4 md:pl-6">
+                    <p className="font-aligarh text-xl md:text-2xl font-bold mb-4">The quick brown fox jumps over the lazy dog.</p>
+                    <p className="font-aligarh text-lg md:text-xl break-all">0123456789 & @ % # *</p>
+                  </div>
+              </div>
+            </div>
         </section>
 
         {/* Section 03: Color Palette */}
@@ -144,7 +162,7 @@ export default function GoldenHour() {
                 <h3 className="font-serif text-3xl font-bold mb-6">Label Hierarchy</h3>
                 <ul className="space-y-4 font-sans text-lg font-light text-obsidian/80 list-none pl-0">
                   <li className="flex items-center gap-3 before:content-['•'] before:text-sienna">Product Monogram (Top Center)</li>
-                  <li className="flex items-center gap-3 before:content-['•'] before:text-sienna">Primary Name (EB Garamond, 24pt)</li>
+                  <li className="flex items-center gap-3 before:content-['•'] before:text-sienna">Primary Name (Aligarh Arabic, 24pt)</li>
                   <li className="flex items-center gap-3 before:content-['•'] before:text-sienna">Key Ingredients (Jost, 8pt Caps)</li>
                   <li className="flex items-center gap-3 before:content-['•'] before:text-sienna">Volume (Bottom Right)</li>
                 </ul>

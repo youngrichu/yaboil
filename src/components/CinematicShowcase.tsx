@@ -58,6 +58,71 @@ const bgGradients = [
   "linear-gradient(160deg, #F4EDE6 0%, #E2D0C0 100%)", // Castor — clay-warm, deepest Canvas blend
 ];
 
+interface ShowcaseCardProps {
+  product: typeof products[number];
+  offset: number;
+  isActive: boolean;
+  isAdjacent: boolean;
+  rotateX: number;
+  rotateY: number;
+  onMouseMove: (e: React.MouseEvent<HTMLDivElement>) => void;
+  onMouseLeave: () => void;
+  onClick: () => void;
+  key?: React.Key;
+}
+
+function ShowcaseCard({ product, offset, isActive, isAdjacent, rotateX, rotateY, onMouseMove, onMouseLeave, onClick, key }: ShowcaseCardProps) {
+  return (
+    <div
+      style={{
+        position: 'absolute',
+        left: '50%',
+        transform: 'translateX(-50%)',
+        zIndex: isActive ? 30 : isAdjacent ? 20 : 5,
+        pointerEvents: isActive || isAdjacent ? 'auto' : 'none',
+      }}
+      className="flex items-center justify-center"
+    >
+      <motion.div
+        animate={{
+          x: `${offset * 115}%`,
+          scale: isActive ? 1 : isAdjacent ? 0.72 : 0.5,
+          opacity: isActive ? 1 : isAdjacent ? 0.55 : 0,
+          rotate: isActive ? 0 : offset > 0 ? 18 : -22,
+        }}
+        transition={{ duration: 1.0, ease: [0.16, 1, 0.3, 1] }}
+        className="w-[200px] sm:w-[260px] md:w-[340px] aspect-[3/4] rounded-[100px_100px_16px_16px] overflow-hidden border border-deep-bark/5 bg-canvas select-none shadow-[20px_30px_60px_-15px_rgba(74,44,17,0.15)] flex flex-col justify-between"
+      >
+        <motion.div
+          onMouseMove={isActive ? onMouseMove : undefined}
+          onMouseLeave={isActive ? onMouseLeave : undefined}
+          style={{ perspective: 1000, transformStyle: 'preserve-3d' }}
+          animate={isActive ? { rotateX, rotateY } : { rotateX: 0, rotateY: 0 }}
+          transition={{ type: "tween", ease: "easeOut", duration: 0.1 }}
+          className="w-full h-full relative overflow-hidden flex items-center justify-center group cursor-pointer"
+          onClick={onClick}
+        >
+          {product.tag && isActive && (
+            <span className="absolute top-6 left-6 z-20 bg-deep-bark text-canvas px-3 py-1 font-label-caps text-[9px] uppercase tracking-widest rounded-none shadow-sm animate-fade-in">
+              {product.tag}
+            </span>
+          )}
+          <div className="absolute inset-0 bg-gradient-to-t from-deep-bark/[0.05] to-transparent pointer-events-none z-10" />
+          <motion.img
+            alt={product.name}
+            style={{ transform: 'translateZ(40px)' }}
+            animate={{ scale: isActive ? 1.12 : 1.0 }}
+            transition={{ scale: { duration: isActive ? 1.0 : 0, ease: [0.16, 1, 0.3, 1] } }}
+            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-120"
+            src={product.img}
+            draggable="false"
+          />
+        </motion.div>
+      </motion.div>
+    </div>
+  );
+}
+
 export default function CinematicShowcase() {
   const [activeIndex, setActiveIndex] = useState(0);
   const [cartStatus, setCartStatus] = useState<'idle' | 'adding' | 'added'>('idle');
@@ -66,6 +131,37 @@ export default function CinematicShowcase() {
 
   const containerRef = useRef<HTMLDivElement>(null);
   const [isPaused, setIsPaused] = useState(false);
+  const touchStartX = useRef<number>(0);
+  const dragStartX = useRef<number | null>(null);
+  const didDrag = useRef(false);
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    touchStartX.current = e.touches[0].clientX;
+    setIsPaused(true);
+  };
+
+  const handleTouchEnd = (e: React.TouchEvent) => {
+    const delta = touchStartX.current - e.changedTouches[0].clientX;
+    if (Math.abs(delta) > 50) {
+      delta > 0 ? handleNext() : handlePrev();
+    }
+    setIsPaused(false);
+  };
+
+  const handleMouseDown = (e: React.MouseEvent) => {
+    dragStartX.current = e.clientX;
+    didDrag.current = false;
+  };
+
+  const handleMouseUp = (e: React.MouseEvent) => {
+    if (dragStartX.current === null) return;
+    const delta = dragStartX.current - e.clientX;
+    if (Math.abs(delta) > 60) {
+      didDrag.current = true;
+      delta > 0 ? handleNext() : handlePrev();
+    }
+    dragStartX.current = null;
+  };
 
   useEffect(() => {
     if (isPaused) return;
@@ -141,7 +237,11 @@ export default function CinematicShowcase() {
     <motion.div
       ref={containerRef}
       onMouseEnter={() => setIsPaused(true)}
-      onMouseLeave={() => setIsPaused(false)}
+      onMouseLeave={() => { setIsPaused(false); dragStartX.current = null; }}
+      onMouseDown={handleMouseDown}
+      onMouseUp={handleMouseUp}
+      onTouchStart={handleTouchStart}
+      onTouchEnd={handleTouchEnd}
       animate={{ background: bgGradients[activeIndex] }}
       transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
       className="relative min-h-[95vh] flex flex-col justify-between overflow-hidden py-16 md:py-24 px-6 md:px-12 transition-all duration-1000"
@@ -248,7 +348,7 @@ export default function CinematicShowcase() {
       </div>
 
       {/* Main Showcase Carousel Area */}
-      <div className="relative z-10 w-full max-w-6xl mx-auto my-12 h-[300px] sm:h-[360px] md:h-[480px] flex items-center justify-center">
+      <div data-cursor="drag" className="relative z-10 w-full max-w-6xl mx-auto my-12 h-[300px] sm:h-[360px] md:h-[480px] flex items-center justify-center select-none">
         {products.map((product, idx) => {
           const rawOffset = idx - activeIndex;
           const half = products.length / 2;
@@ -261,72 +361,21 @@ export default function CinematicShowcase() {
           const isAdjacent = Math.abs(offset) === 1;
 
           return (
-            <div
+            <ShowcaseCard
               key={product.id}
-              style={{
-                position: 'absolute',
-                left: '50%',
-                transform: 'translateX(-50%)',
-                zIndex: isActive ? 30 : isAdjacent ? 20 : 5,
-                pointerEvents: isActive || isAdjacent ? 'auto' : 'none',
+              product={product}
+              offset={offset}
+              isActive={isActive}
+              isAdjacent={isAdjacent}
+              rotateX={rotateX}
+              rotateY={rotateY}
+              onMouseMove={handleMouseMove}
+              onMouseLeave={handleMouseLeave}
+              onClick={() => {
+                if (!isActive && !didDrag.current) setActiveIndex(idx);
+                didDrag.current = false;
               }}
-              className="flex items-center justify-center"
-            >
-              <motion.div
-                animate={{
-                  x: `${offset * 115}%`,
-                  scale: isActive ? 1 : isAdjacent ? 0.72 : 0.5,
-                  opacity: isActive ? 1 : isAdjacent ? 0.55 : 0,
-                  rotate: isActive ? 0 : offset > 0 ? 18 : -22,
-                }}
-                transition={{ duration: 1.0, ease: [0.16, 1, 0.3, 1] }}
-                className="w-[200px] sm:w-[260px] md:w-[340px] aspect-[3/4] rounded-[100px_100px_16px_16px] overflow-hidden border border-deep-bark/5 bg-canvas select-none shadow-[20px_30px_60px_-15px_rgba(74,44,17,0.15)] flex flex-col justify-between"
-              >
-                {/* Product Card Image Container with Tilt Effect */}
-                <motion.div
-                  onMouseMove={isActive ? handleMouseMove : undefined}
-                  onMouseLeave={isActive ? handleMouseLeave : undefined}
-                  style={{
-                    perspective: 1000,
-                    transformStyle: 'preserve-3d',
-                  }}
-                  animate={isActive ? {
-                    rotateX: rotateX,
-                    rotateY: rotateY,
-                  } : { rotateX: 0, rotateY: 0 }}
-                  transition={{ type: "tween", ease: "easeOut", duration: 0.1 }}
-                  className="w-full h-full relative overflow-hidden flex items-center justify-center group cursor-pointer"
-                  onClick={() => {
-                    if (!isActive) {
-                      setActiveIndex(idx);
-                    }
-                  }}
-                >
-                  {product.tag && isActive && (
-                    <span className="absolute top-6 left-6 z-20 bg-deep-bark text-canvas px-3 py-1 font-label-caps text-[9px] uppercase tracking-widest rounded-none shadow-sm animate-fade-in">
-                      {product.tag}
-                    </span>
-                  )}
-                  
-                  {/* Visual Depth Glow */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-deep-bark/[0.05] to-transparent pointer-events-none z-10" />
-
-                  <motion.img
-                    alt={product.name}
-                    style={{
-                      transform: 'translateZ(40px)',
-                    }}
-                    animate={{ scale: isActive ? 1.12 : 1.0 }}
-                    transition={{
-                      scale: { duration: isActive ? 1.0 : 0, ease: [0.16, 1, 0.3, 1] }
-                    }}
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-120"
-                    src={product.img}
-                    draggable="false"
-                  />
-                </motion.div>
-              </motion.div>
-            </div>
+            />
           );
         })}
       </div>

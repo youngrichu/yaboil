@@ -99,7 +99,7 @@ export default function Journal() {
           <span className="font-label-caps text-label-caps text-raw-sienna tracking-[0.25em] block mb-4 uppercase">
             The Botanical Archive
           </span>
-          <h1 className="font-display-lg text-display-lg-mobile md:text-display-lg text-obsidian mb-6 italic font-medium leading-none">
+          <h1 className="font-display-lg text-display-lg-mobile md:text-display-lg text-obsidian mb-6 font-medium leading-none">
             The Journal
           </h1>
           <p className="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto leading-relaxed">
@@ -121,7 +121,7 @@ export default function Journal() {
                 <span className="font-label-caps text-label-caps text-raw-sienna mb-4 block tracking-[0.25em]">
                   VOLUME IV • FEATURE ARTICLE
                 </span>
-                <h1 className="font-headline-md text-5xl md:text-6xl text-deep-bark font-medium italic leading-tight">
+                <h1 className="font-headline-md text-5xl md:text-6xl text-deep-bark font-medium leading-tight">
                   Harvesting the Desert:<br />Black Seed Sourcing
                 </h1>
               </div>
@@ -147,7 +147,7 @@ export default function Journal() {
                   <img 
                     alt="Harvesting the Desert: Black Seed Sourcing" 
                     className="w-full h-full object-cover transition-transform duration-1000 ease-out group-hover:scale-103 grayscale-[25%] sepia-[12%]" 
-                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuAuD_dgsduL1eH7yp1MxUh1hyJL4rweSp2otrnwMDzK-kb7C09cw7z_lDJ9Qr-CiC8YWWJo8lIsKeJBfL_PZXMJmIx3oZQfi04F6cEuNMeES4491teZkc220JKhO5B9ziiwckEmagK8AiWaxpqKIh3vJmOEho8POIgHYV9kZ-Ly_AclRPY7GNRr0WsSMn0A-z8G1m8KmRxHRFWiCjvfqAB5KRxd99t6IR11JdfVzDtJnc7z0-zili70bbX4eiGvvtmYJACOxvtTPQ4_" 
+                    src="/images/black-seed.png"
                   />
                 </div>
               </Link>
@@ -289,7 +289,7 @@ export default function Journal() {
             <span className="material-symbols-outlined text-raw-sienna text-5xl select-none" style={{ fontVariationSettings: "'FILL' 0, 'wght' 200" }}>
               format_quote
             </span>
-            <blockquote className="font-headline-md text-3xl md:text-4xl text-canvas italic font-light leading-relaxed max-w-2xl mx-auto py-4">
+            <blockquote className="font-headline-md text-3xl md:text-4xl text-canvas font-light leading-relaxed max-w-2xl mx-auto py-4">
               "True beauty is an act of preservation. We do not create essence; we simply protect the intelligence that nature has already perfected."
             </blockquote>
             <cite className="font-label-caps text-label-caps text-raw-sienna not-italic block uppercase tracking-[0.2em] font-semibold">
@@ -305,7 +305,7 @@ export default function Journal() {
         >
           <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             <div className="space-y-4">
-              <h2 className="font-headline-md text-3xl md:text-4xl text-deep-bark italic font-medium leading-tight">
+              <h2 className="font-headline-md text-3xl md:text-4xl text-deep-bark font-medium leading-tight">
                 The Essence Dispatch
               </h2>
               <p className="font-body-md text-body-md text-on-surface-variant max-w-sm leading-relaxed">
@@ -372,7 +372,7 @@ export default function Journal() {
                   <span className="font-label-caps text-[11px] text-raw-sienna uppercase tracking-[0.2em] font-semibold">
                     Interactive Ritual Guide
                   </span>
-                  <h3 className="font-headline-md text-3xl text-deep-bark italic font-medium mt-2">
+                  <h3 className="font-headline-md text-3xl text-deep-bark font-medium mt-2">
                     The Evening Scalp Ritual
                   </h3>
                 </div>

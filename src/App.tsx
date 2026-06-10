@@ -11,8 +11,10 @@ import HarvestingDesertDetail from './pages/HarvestingDesertDetail';
 import ProductDetail from './pages/ProductDetail';
 import PumpkinSeedDetail from './pages/PumpkinSeedDetail';
 import Cart from './pages/Cart';
-import Account from './pages/Account';
-import { ShoppingBag, User, Menu, X } from 'lucide-react';
+import Privacy from './pages/Privacy';
+import Terms from './pages/Terms';
+import { ShoppingBag, Menu, X } from 'lucide-react';
+import CustomCursor from './components/CustomCursor';
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -28,6 +30,7 @@ export default function App() {
   return (
     <BrowserRouter>
       <ScrollToTop />
+      <CustomCursor />
       <div className="min-h-screen flex flex-col">
         <NavBar />
         <Routes>
@@ -43,7 +46,8 @@ export default function App() {
           <Route path="/product/black-seed" element={<ProductDetail />} />
           <Route path="/product/pumpkin-seed" element={<PumpkinSeedDetail />} />
           <Route path="/cart" element={<Cart />} />
-          <Route path="/account" element={<Account />} />
+          <Route path="/privacy" element={<Privacy />} />
+          <Route path="/terms" element={<Terms />} />
         </Routes>
       </div>
     </BrowserRouter>
@@ -72,7 +76,7 @@ function NavBar() {
               {isMobileMenuOpen ? <X size={24} className={iconClass} /> : <Menu size={24} className={iconClass} />}
             </button>
             <Link to="/" className={`text-2xl font-bold tracking-tight flex items-center gap-4 ${textClass}`}>
-              <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBDJAr829hhc4sAgjQ1fdbD0sQQW7xZzBBB5HJpjpEmXmvOCPX70Jh0Z8dY6hq4fOSQX_fq21oyUIWY4UqYfqncENv0ba-w3MVo4eodXf-hpWZzXKt1EdfYrvf2HQyA9vEEAtFakOYuVhifXNlCM16MokFD1M2UNcsWXezX_5jDtX0nopTnJfN0kdVF1Lj6z1YkU_SVqWTabihOBiUNjASMXvtXN02FtQKYYVyRFLQBaqND-2SG9uGrOL3Fzf-WrjF8lDyGIihSWZLp" alt="YabOil Logo" className="h-10 w-10 md:h-12 md:w-12 object-contain" />
+              <img src="/images/yaboil-logo.svg" alt="YabOil Logo" className="h-10 w-10 md:h-12 md:w-12 object-contain" />
               <span className="hidden lg:block text-headline-md tracking-tighter">YabOil</span>
             </Link>
           </div>
@@ -89,9 +93,6 @@ function NavBar() {
               <ShoppingBag size={20} strokeWidth={1.5} />
               <CartIndicator isHighImpact={isHighImpact} />
             </Link>
-            <Link to="/account" className={`hover:scale-105 transition-transform focus:outline-none relative flex items-center justify-center p-1 text-current ${location.pathname === '/account' ? 'opacity-100 border-b border-sienna pb-1' : ''}`} aria-label="Account Portal">
-              <User size={20} strokeWidth={1.5} />
-            </Link>
           </div>
         </div>
       </nav>
@@ -104,7 +105,6 @@ function NavBar() {
             <Link onClick={() => setIsMobileMenuOpen(false)} to="/philosophy" className="font-label-caps text-sm uppercase tracking-[0.2em] font-medium text-on-surface-variant cursor-pointer hover:text-primary">Philosophy</Link>
             <Link onClick={() => setIsMobileMenuOpen(false)} to="/journal" className="font-label-caps text-sm uppercase tracking-[0.2em] font-medium text-on-surface-variant cursor-pointer hover:text-primary">Journal</Link>
             <Link onClick={() => setIsMobileMenuOpen(false)} to="/cart" className="font-label-caps text-sm uppercase tracking-[0.2em] font-medium text-on-surface-variant cursor-pointer hover:text-primary">Cart</Link>
-            <Link onClick={() => setIsMobileMenuOpen(false)} to="/account" className="font-label-caps text-sm uppercase tracking-[0.2em] font-medium text-on-surface-variant cursor-pointer hover:text-primary">Account Portal</Link>
          </div>
       </div>
     </>

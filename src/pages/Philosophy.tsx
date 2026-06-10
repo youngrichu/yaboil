@@ -11,7 +11,7 @@ export default function Philosophy() {
         </div>
         <div className="relative z-10 text-center max-w-4xl mx-auto flex flex-col items-center">
           <img alt="YabOil Logo" className="w-24 h-24 object-contain mb-8 opacity-80" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDWdkkVRExRBGCddQwfSLXD-SkbHc63dPMwFP1B_qXd73WNRZg_j-gQYDbllQ8UCG51aBYymD_WNbCrUSpZ8Ox8D4ML5t5rP6kXEpIXIh08cIoVmqsRDbgZp5uMDGd9Du2ewM8hNT9_0ja3HtF5iZ7NgRiCSVYUHuOELl8XEKGlebkfQKHu-aWjWq2IHWq8YHwRKLlGnyTsklSoyZA-Cil-ReClcmKkje9RCzaFdxjKOrQT25j67ZZJDVQYnvoB13OMRRC2rHVYWwpx" />
-          <h1 className="font-aligarh text-headline-lg-mobile md:text-display-lg text-deep-bark mb-6 tracking-tight">The Art of Slow Beauty</h1>
+          <h1 className="font-serif text-headline-lg-mobile md:text-display-lg text-deep-bark mb-6 tracking-tight">The Art of Slow Beauty</h1>
           <p className="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto mb-10 leading-relaxed">
             Naturally Pressed, Small-Batch Botanicals. A return to intention, honoring the raw rhythm of nature through meticulous, unhurried craftsmanship.
           </p>
@@ -26,7 +26,7 @@ export default function Philosophy() {
           <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 lg:gap-16 items-center">
             <div className="md:col-span-12 lg:col-span-5 lg:col-start-2 order-2 lg:order-1 flex flex-col justify-center">
               <span className="font-label-caps text-label-caps text-raw-sienna mb-4 block tracking-widest uppercase">Our Intent</span>
-              <h2 className="font-aligarh text-headline-md text-deep-bark mb-6">From Seed to Bottle</h2>
+              <h2 className="font-serif text-headline-md text-deep-bark mb-6">From Seed to Bottle</h2>
               <p className="font-body-md text-body-md text-on-surface-variant mb-6 leading-relaxed">
                   We believe that luxury is time. Our process is a deliberate rejection of mass production, focusing instead on the quiet alchemy of nature. Every drop is a testament to the soil, the sun, and the careful hands that guide it from the earth to your skin.
               </p>
@@ -44,18 +44,17 @@ export default function Philosophy() {
 
         {/* Methodology Highlights */}
         <section className="py-section-gap bg-surface-container-low px-page-margin-mobile md:px-page-margin-desktop border-y border-outline/10 relative overflow-hidden">
-          <img src="/images/illustrations/castor.jpg" aria-hidden="true" alt="" className="absolute -left-[35%] top-1/2 -translate-y-1/2 w-[55%] opacity-[0.2] mix-blend-multiply pointer-events-none select-none hidden md:block" />
-          <img src="/images/illustrations/castor.jpg" aria-hidden="true" alt="" className="absolute -right-[35%] top-1/2 -translate-y-1/2 w-[55%] opacity-[0.2] mix-blend-multiply pointer-events-none select-none hidden md:block" />
+          <img src="/images/illustrations/castor.jpg" aria-hidden="true" alt="" className="absolute top-0 right-0 w-[260px] h-auto opacity-[0.13] mix-blend-multiply pointer-events-none select-none hidden lg:block [mask-image:radial-gradient(ellipse_at_top_right,black_25%,transparent_70%)]" />
           <div className="max-w-7xl mx-auto relative z-10">
             <div className="text-center mb-16">
               <span className="font-label-caps text-label-caps tracking-widest uppercase text-raw-sienna mb-4 block">Methodology</span>
-              <h2 className="font-aligarh text-headline-md text-deep-bark">Naturally Pressed</h2>
+              <h2 className="font-serif text-headline-md text-deep-bark">Naturally Pressed</h2>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
               {/* Feature 1 */}
               <div className="bg-canvas p-8 golden-shadow hover:shadow-[12px_16px_40px_-4px_rgba(74,44,17,0.12)] transition-all duration-300 flex flex-col h-full border border-outline/5 group">
                 <span className="material-symbols-outlined text-raw-sienna text-3xl mb-6">water_drop</span>
-                <h3 className="font-aligarh text-headline-md text-deep-bark text-2xl mb-4">Cold-Pressed</h3>
+                <h3 className="font-serif text-headline-md text-deep-bark text-2xl mb-4">Cold-Pressed</h3>
                 <p className="font-body-md text-body-md text-on-surface-variant flex-grow">
                   Extracted without heat or chemical solvents to preserve the delicate lipid barriers and vital nutrients of each seed and flower.
                 </p>
@@ -63,7 +62,7 @@ export default function Philosophy() {
               {/* Feature 2 */}
               <div className="bg-canvas p-8 golden-shadow hover:shadow-[12px_16px_40px_-4px_rgba(74,44,17,0.12)] transition-all duration-300 flex flex-col h-full border border-outline/5 group">
                 <span className="material-symbols-outlined text-raw-sienna text-3xl mb-6">hourglass_empty</span>
-                <h3 className="font-aligarh text-headline-md text-deep-bark text-2xl mb-4">Slow Maturation</h3>
+                <h3 className="font-serif text-headline-md text-deep-bark text-2xl mb-4">Slow Maturation</h3>
                 <p className="font-body-md text-body-md text-on-surface-variant flex-grow">
                   Allowed to settle and clarify naturally over weeks, ensuring unparalleled purity and a sensory profile that cannot be rushed.
                 </p>
@@ -71,7 +70,7 @@ export default function Philosophy() {
               {/* Feature 3 */}
               <div className="bg-canvas p-8 golden-shadow hover:shadow-[12px_16px_40px_-4px_rgba(74,44,17,0.12)] transition-all duration-300 flex flex-col h-full border border-outline/5 group">
                 <span className="material-symbols-outlined text-raw-sienna text-3xl mb-6">spa</span>
-                <h3 className="font-aligarh text-headline-md text-deep-bark text-2xl mb-4">Artisanal Yields</h3>
+                <h3 className="font-serif text-headline-md text-deep-bark text-2xl mb-4">Artisanal Yields</h3>
                 <p className="font-body-md text-body-md text-on-surface-variant flex-grow">
                   Produced in strictly limited batches. We prioritize the uncompromising quality of a small yield over the compromises of volume.
                 </p>
@@ -82,8 +81,7 @@ export default function Philosophy() {
 
         {/* Sourcing Commitment */}
         <section className="py-section-gap px-page-margin-mobile md:px-page-margin-desktop relative overflow-hidden">
-          <img src="/images/illustrations/herb-rosemary.jpg" aria-hidden="true" alt="" className="absolute -left-[35%] top-1/2 -translate-y-1/2 w-[55%] opacity-[0.2] mix-blend-multiply pointer-events-none select-none hidden md:block" />
-          <img src="/images/illustrations/herb-rosemary.jpg" aria-hidden="true" alt="" className="absolute -right-[35%] top-1/2 -translate-y-1/2 w-[55%] opacity-[0.2] mix-blend-multiply pointer-events-none select-none hidden md:block" />
+          <img src="/images/illustrations/herb-rosemary.jpg" aria-hidden="true" alt="" className="absolute bottom-0 left-0 w-[260px] h-auto opacity-[0.13] mix-blend-multiply pointer-events-none select-none hidden lg:block [mask-image:radial-gradient(ellipse_at_bottom_left,black_25%,transparent_70%)]" />
           <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 lg:gap-16 items-center relative z-10">
             <div className="md:col-span-12 lg:col-span-6 mb-10 lg:mb-0 relative">
               <div className="absolute -inset-4 bg-background -z-10 golden-shadow opacity-50 hidden md:block"></div>
@@ -91,7 +89,7 @@ export default function Philosophy() {
             </div>
             <div className="md:col-span-12 lg:col-span-5 lg:col-start-8 flex flex-col justify-center">
               <span className="font-label-caps text-label-caps text-raw-sienna mb-4 block tracking-widest uppercase">Ethical Sourcing</span>
-              <h2 className="font-aligarh text-headline-md text-deep-bark mb-6">A Commitment to the Earth</h2>
+              <h2 className="font-serif text-headline-md text-deep-bark mb-6">A Commitment to the Earth</h2>
               <p className="font-body-md text-body-md text-on-surface-variant mb-6 leading-relaxed">
                   Our relationship with our growers is rooted in transparency and respect. We source exclusively from farms that practice regenerative agriculture, ensuring that we give back to the soil as much as we take.
               </p>

@@ -88,19 +88,9 @@ export default function Home() {
             alt=""
             className="absolute inset-0 w-full h-full object-cover"
           />
-          {/* Floating Callout — anchored near the oil drip (center of image) */}
-          <Link to="/process" className="hidden md:flex absolute top-[42%] left-[38%] z-20 flex-col items-center group/callout">
-            <div className="w-2 h-2 bg-raw-sienna rounded-full"></div>
-            <div className="w-px h-16 bg-raw-sienna/50"></div>
-            <div className="bg-canvas/90 backdrop-blur-md p-4 golden-shadow border border-raw-sienna/10 max-w-[180px] group-hover/callout:border-raw-sienna/40 transition-colors duration-300">
-              <span className="font-label-caps text-[10px] text-raw-sienna block mb-1">Our Process</span>
-              <p className="font-body-md text-[13px] leading-tight text-on-surface-variant">Cold-pressed below 40°C to preserve enzymatic integrity.</p>
-            </div>
-          </Link>
         </div>
         <div className="flex items-center justify-center p-page-margin-mobile md:p-page-margin-desktop bg-canvas border-l border-raw-sienna/5 relative overflow-hidden">
-          <img src="/images/illustrations/herb-rosemary.jpg" aria-hidden="true" alt="" className="absolute -left-[35%] top-1/2 -translate-y-1/2 w-[55%] opacity-[0.2] mix-blend-multiply pointer-events-none select-none hidden md:block" />
-          <img src="/images/illustrations/herb-rosemary.jpg" aria-hidden="true" alt="" className="absolute -right-[35%] top-1/2 -translate-y-1/2 w-[55%] opacity-[0.2] mix-blend-multiply pointer-events-none select-none hidden md:block" />
+          <img src="/images/illustrations/herb-rosemary.jpg" aria-hidden="true" alt="" className="absolute bottom-0 right-0 w-[260px] h-auto opacity-[0.15] mix-blend-multiply pointer-events-none select-none hidden lg:block [mask-image:radial-gradient(ellipse_at_bottom_right,black_25%,transparent_70%)]" />
           <div className="max-w-md space-y-8 relative z-10">
             <span className="font-label-caps text-label-caps text-raw-sienna tracking-[0.3em]">OUR PHILOSOPHY</span>
             <h2 className="font-headline-md text-headline-md text-deep-bark leading-snug">The Artisanal Standard: Naturally Pressed.</h2>
