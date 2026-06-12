@@ -12,7 +12,7 @@ export default function Philosophy() {
         </div>
         <div className="relative z-10 text-center max-w-4xl mx-auto flex flex-col items-center">
           <img alt="YabOil Logo" className="w-24 h-24 object-contain mb-8 opacity-80" src={IMAGES.philosophyLogo} />
-          <h1 className="font-serif text-headline-lg-mobile md:text-display-lg text-deep-bark mb-6 tracking-tight">The Art of Slow Beauty</h1>
+          <h1 className="font-serif text-display-lg-mobile md:text-display-lg text-deep-bark mb-6 tracking-tight">The Art of Slow Beauty</h1>
           <p className="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto mb-10 leading-relaxed">
             Naturally Pressed, Small-Batch Botanicals. A return to intention, honoring the raw rhythm of nature through meticulous, unhurried craftsmanship.
           </p>

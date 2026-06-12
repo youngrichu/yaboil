@@ -68,7 +68,7 @@ const imageReveal = {
   transition: { duration: 1, ease: [0.16, 1, 0.3, 1] },
 };
 
-function ProcessStep({ step, key }: { step: Step; key?: React.Key }) {
+function ProcessStep({ step }: { step: Step }) {
   const textAnim = {
     initial: { opacity: 0, x: step.reverse ? -20 : 20 },
     whileInView: { opacity: 1, x: 0 },
