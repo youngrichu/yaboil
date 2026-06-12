@@ -90,7 +90,7 @@ export default function Lineup() {
         <section className="w-full px-page-margin-mobile md:px-page-margin-desktop py-12 md:py-section-gap max-w-screen-2xl mx-auto flex flex-col items-center text-center relative overflow-hidden">
           <img src={IMAGES.castorIllustration} aria-hidden="true" alt="" className="absolute top-0 left-0 w-[260px] h-auto opacity-[0.13] mix-blend-multiply pointer-events-none select-none hidden lg:block [mask-image:radial-gradient(ellipse_at_top_left,black_25%,transparent_68%)]" />
           <img src={IMAGES.castorIllustration} aria-hidden="true" alt="" className="absolute top-0 right-0 w-[260px] h-auto opacity-[0.13] mix-blend-multiply pointer-events-none select-none hidden lg:block [mask-image:radial-gradient(ellipse_at_top_right,black_25%,transparent_68%)]" />
-          <h1 className="font-serif text-headline-lg-mobile md:text-display-lg text-deep-bark mb-6 max-w-4xl tracking-tight relative z-10">The Artisanal Lineup</h1>
+          <h1 className="font-serif text-display-lg-mobile md:text-display-lg text-deep-bark mb-6 max-w-4xl tracking-tight relative z-10">The Artisanal Lineup</h1>
           <p className="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto leading-relaxed relative z-10">
             Four exceptional botanicals, cold-pressed in small batches. Each bottle represents a commitment to purity, capturing the essence of organic agriculture through meticulous extraction processes.
           </p>
