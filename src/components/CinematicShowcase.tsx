@@ -284,66 +284,43 @@ export default function CinematicShowcase() {
       {/* Background Kinetic Typography */}
       <div className="absolute inset-0 flex flex-col justify-center gap-16 pointer-events-none select-none z-0 overflow-hidden">
         {/* Row 1 Scrolling Left */}
+        {/*
+          The spans must NOT restyle on slide change. These rows are huge
+          (8 names at 11vw, stroked text) — an animated color/opacity change
+          re-rasterizes the whole row every frame for 1s, which stalls the
+          mobile GPU rasterizer and drops the entire page content layer for
+          a few frames (the beige full-page blink). With static content the
+          x-slide is compositor-only, and willChange keeps the rows on their
+          own persistent GPU layers so they never re-raster on transitions.
+        */}
         <motion.div
+          style={{ willChange: 'transform' }}
           animate={{ x: `-${activeIndex * 12 + 10}%` }}
           transition={{ duration: 1.0, ease: [0.16, 1, 0.3, 1] }}
-          className="flex whitespace-nowrap gap-16 text-[11vw] font-bold text-stroke font-serif leading-none tracking-tighter"
+          className="flex whitespace-nowrap gap-16 text-[11vw] font-bold text-stroke font-serif leading-none tracking-tighter opacity-30"
         >
           {products.map((p, idx) => (
-            <span
-              key={`row1-${idx}`}
-              className={`transition-colors duration-1000 ${
-                idx === activeIndex ? "text-deep-bark/5" : "opacity-30"
-              }`}
-            >
-              {p.bgText}
-            </span>
+            <span key={`row1-${idx}`}>{p.bgText}</span>
           ))}
           {/* Double length to ensure space coverage */}
           {products.map((p, idx) => (
-            <span
-              key={`row1-dup-${idx}`}
-              className={`transition-colors duration-1000 ${
-                idx === activeIndex ? "text-deep-bark/5" : "opacity-30"
-              }`}
-            >
-              {p.bgText}
-            </span>
+            <span key={`row1-dup-${idx}`}>{p.bgText}</span>
           ))}
         </motion.div>
 
         {/* Row 2 Scrolling Right */}
         <motion.div
+          style={{ willChange: 'transform' }}
           animate={{ x: `${activeIndex * 12 - 35}%` }}
           transition={{ duration: 1.0, ease: [0.16, 1, 0.3, 1] }}
-          className="flex whitespace-nowrap gap-16 text-[11vw] font-bold text-stroke font-serif leading-none tracking-tighter"
+          className="flex whitespace-nowrap gap-16 text-[11vw] font-bold text-stroke font-serif leading-none tracking-tighter opacity-30"
         >
-          {[...products].reverse().map((p, idx) => {
-            const actualIdx = products.length - 1 - idx;
-            return (
-              <span
-                key={`row2-${idx}`}
-                className={`transition-colors duration-1000 ${
-                  actualIdx === activeIndex ? "text-deep-bark/5" : "opacity-30"
-                }`}
-              >
-                {p.bgText}
-              </span>
-            );
-          })}
-          {[...products].reverse().map((p, idx) => {
-            const actualIdx = products.length - 1 - idx;
-            return (
-              <span
-                key={`row2-dup-${idx}`}
-                className={`transition-colors duration-1000 ${
-                  actualIdx === activeIndex ? "text-deep-bark/5" : "opacity-30"
-                }`}
-              >
-                {p.bgText}
-              </span>
-            );
-          })}
+          {[...products].reverse().map((p, idx) => (
+            <span key={`row2-${idx}`}>{p.bgText}</span>
+          ))}
+          {[...products].reverse().map((p, idx) => (
+            <span key={`row2-dup-${idx}`}>{p.bgText}</span>
+          ))}
         </motion.div>
       </div>
 
