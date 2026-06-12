@@ -248,7 +248,7 @@ export default function CinematicShowcase() {
   };
 
   return (
-    <motion.div
+    <div
       ref={containerRef}
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => { setIsPaused(false); dragStartX.current = null; }}
@@ -256,10 +256,31 @@ export default function CinematicShowcase() {
       onMouseUp={handleMouseUp}
       onTouchStart={handleTouchStart}
       onTouchEnd={handleTouchEnd}
-      animate={{ background: bgGradients[activeIndex] }}
-      transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
-      className="relative min-h-[95vh] flex flex-col justify-between overflow-hidden py-16 md:py-24 px-6 md:px-12"
+      className="relative min-h-[95vh] flex flex-col justify-between overflow-hidden py-16 md:py-24 px-6 md:px-12 bg-[#F6EFE5]"
     >
+      {/*
+        Cross-faded gradient layers instead of animating `background` on the
+        section itself. Gradients are not compositor-animatable, so Motion
+        interpolates the gradient string in JS and rewrites style.background
+        every frame, forcing a full repaint of the 95vh section (including the
+        11vw stroked text) 60x/s. On mobile GPUs the rasterizer falls behind at
+        transition start and presents blank (white) tiles for a few frames.
+        Opacity cross-fades run entirely on the compositor, and the static
+        beige base color above means any dropped tile flashes beige, not white.
+      */}
+      <div className="absolute inset-0 z-0 pointer-events-none" aria-hidden="true">
+        {bgGradients.map((gradient, idx) => (
+          <motion.div
+            key={idx}
+            style={{ background: gradient }}
+            initial={false}
+            animate={{ opacity: idx === activeIndex ? 1 : 0 }}
+            transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+            className="absolute inset-0"
+          />
+        ))}
+      </div>
+
       {/* Background Kinetic Typography */}
       <div className="absolute inset-0 flex flex-col justify-center gap-16 pointer-events-none select-none z-0 overflow-hidden">
         {/* Row 1 Scrolling Left */}
@@ -466,6 +487,6 @@ export default function CinematicShowcase() {
           </motion.div>
         </AnimatePresence>
       </div>
-    </motion.div>
+    </div>
   );
 }
