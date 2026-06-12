@@ -250,12 +250,10 @@ export default function CinematicShowcase() {
       ref={containerRef}
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => { setIsPaused(false); dragStartX.current = null; }}
-      /* GESTURE SWIPER DISABLED FOR FLICKER TESTING — re-enable when confirmed clean
       onMouseDown={handleMouseDown}
       onMouseUp={handleMouseUp}
       onTouchStart={handleTouchStart}
       onTouchEnd={handleTouchEnd}
-      */
       className="relative min-h-[95vh] flex flex-col justify-between overflow-hidden py-16 md:py-24 px-6 md:px-12 bg-[#F6EFE5]"
     >
       {/*
