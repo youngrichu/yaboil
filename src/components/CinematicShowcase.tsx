@@ -97,7 +97,7 @@ function ShowcaseCard({ product, offset, isActive, isAdjacent, rotateX, rotateY,
         animate={{
           x: `${offset * 115}%`,
           scale: isActive ? 1 : isAdjacent ? 0.72 : 0.5,
-          opacity: isActive ? 1 : isAdjacent ? 0.55 : 0,
+          opacity: isActive ? 1 : isAdjacent ? 0.55 : 0.001,
           rotate: isActive ? 0 : offset > 0 ? 18 : -22,
         }}
         transition={{
@@ -105,7 +105,7 @@ function ShowcaseCard({ product, offset, isActive, isAdjacent, rotateX, rotateY,
           ease: [0.16, 1, 0.3, 1],
           ...(wrapped && { x: { duration: 0 }, rotate: { duration: 0 } }),
         }}
-        style={{ perspective: 1000 }}
+        style={{ perspective: 1000, willChange: 'transform, opacity' }}
         className="w-[200px] sm:w-[260px] md:w-[340px] aspect-[3/4] rounded-[100px_100px_16px_16px] overflow-hidden isolate border border-deep-bark/5 bg-canvas select-none shadow-[20px_30px_60px_-15px_rgba(74,44,17,0.15)] flex flex-col justify-between"
       >
         <motion.div
