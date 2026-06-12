@@ -55,7 +55,7 @@ const products: Product[] = [
   },
 ];
 
-function LineupCard({ product, key }: { product: Product; key?: React.Key }) {
+function LineupCard({ product }: { product: Product }) {
   return (
     <div className={`group flex flex-col bg-alabaster border border-raw-sienna/10 overflow-hidden transition-all duration-500 hover:shadow-[10px_10px_30px_rgba(74,44,17,0.12)]${product.offset ? ' md:mt-24' : ''}`}>
       <div className="relative h-[45vh] md:h-[60vh] lg:h-[70vh] w-full overflow-hidden bg-surface-container-low cursor-pointer">

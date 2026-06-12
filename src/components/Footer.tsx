@@ -83,7 +83,7 @@ export default function Footer() {
                 placeholder="your@email.com"
                 className="w-full bg-transparent border-b border-canvas/20 py-3 pr-10 font-body-md text-sm focus:outline-none focus:border-raw-sienna transition-colors text-canvas placeholder:text-canvas/30 rounded-none"
               />
-              <button className="absolute right-0 top-1/2 -translate-y-1/2 text-raw-sienna cursor-pointer focus:outline-none hover:opacity-80 transition-opacity">
+              <button aria-label="Subscribe to newsletter" className="absolute right-0 top-1/2 -translate-y-1/2 text-raw-sienna cursor-pointer focus:outline-none hover:opacity-80 transition-opacity">
                 <span className="material-symbols-outlined text-[20px]">arrow_forward</span>
               </button>
             </div>
