@@ -124,7 +124,7 @@ function ShowcaseCard({ product, offset, isActive, isAdjacent, rotateX, rotateY,
           <div className="absolute inset-0 bg-gradient-to-t from-deep-bark/[0.05] to-transparent pointer-events-none z-10" />
           <motion.img
             alt={product.name}
-            style={{ transform: 'translateZ(0)' }}
+            style={{ willChange: 'transform' }}
             animate={{ scale: isActive ? 1.12 : 1.0 }}
             transition={{ scale: { duration: isActive ? 1.0 : 0, ease: [0.16, 1, 0.3, 1] } }}
             className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-120"
