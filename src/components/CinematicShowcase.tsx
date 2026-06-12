@@ -105,15 +105,15 @@ function ShowcaseCard({ product, offset, isActive, isAdjacent, rotateX, rotateY,
           ease: [0.16, 1, 0.3, 1],
           ...(wrapped && { x: { duration: 0 }, rotate: { duration: 0 } }),
         }}
-        className="w-[200px] sm:w-[260px] md:w-[340px] aspect-[3/4] rounded-[100px_100px_16px_16px] overflow-hidden border border-deep-bark/5 bg-canvas select-none shadow-[20px_30px_60px_-15px_rgba(74,44,17,0.15)] flex flex-col justify-between"
+        style={{ perspective: 1000 }}
+        className="w-[200px] sm:w-[260px] md:w-[340px] aspect-[3/4] rounded-[100px_100px_16px_16px] overflow-hidden isolate border border-deep-bark/5 bg-canvas select-none shadow-[20px_30px_60px_-15px_rgba(74,44,17,0.15)] flex flex-col justify-between"
       >
         <motion.div
           onMouseMove={isActive ? onMouseMove : undefined}
           onMouseLeave={isActive ? onMouseLeave : undefined}
-          style={{ perspective: 1000, transformStyle: 'preserve-3d' }}
           animate={isActive ? { rotateX, rotateY } : { rotateX: 0, rotateY: 0 }}
           transition={{ type: "tween", ease: "easeOut", duration: 0.1 }}
-          className="w-full h-full relative overflow-hidden flex items-center justify-center group cursor-pointer"
+          className="w-full h-full relative overflow-hidden rounded-[inherit] flex items-center justify-center group cursor-pointer"
           onClick={onClick}
         >
           {product.tag && isActive && (
@@ -124,7 +124,6 @@ function ShowcaseCard({ product, offset, isActive, isAdjacent, rotateX, rotateY,
           <div className="absolute inset-0 bg-gradient-to-t from-deep-bark/[0.05] to-transparent pointer-events-none z-10" />
           <motion.img
             alt={product.name}
-            style={{ transform: 'translateZ(40px)' }}
             animate={{ scale: isActive ? 1.12 : 1.0 }}
             transition={{ scale: { duration: isActive ? 1.0 : 0, ease: [0.16, 1, 0.3, 1] } }}
             className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-120"
