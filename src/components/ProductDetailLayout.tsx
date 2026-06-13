@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
+import { ArrowLeft } from 'lucide-react';
 import Footer from './Footer';
 import ProductButton from './ProductButton';
 import { useProductCart } from '../hooks/useProductCart';
@@ -29,6 +30,15 @@ export default function ProductDetailLayout({ product }: { product: ProductData 
     document.title = `YabOil | ${product.name}`;
     return () => { document.title = previousTitle; };
   }, [product.name]);
+
+  const navigate = useNavigate();
+  const location = useLocation();
+  // Return to wherever the user came from; fall back to the lineup on a fresh
+  // load or refresh, where there is no in-app history to pop.
+  const goBack = () => {
+    if (location.key === 'default') navigate('/lineup');
+    else navigate(-1);
+  };
 
   const cartItem = {
     id: product.id,
@@ -78,6 +88,15 @@ export default function ProductDetailLayout({ product }: { product: ProductData 
           {/* Right: scrolling narrative */}
           <div className="w-full md:w-1/2 min-h-screen px-page-margin-mobile md:px-12 lg:px-24 py-16 bg-canvas flex flex-col justify-start relative z-10 overflow-hidden">
             <img src={product.illustration} aria-hidden="true" alt="" className="absolute bottom-0 right-0 w-[280px] h-auto opacity-[0.13] mix-blend-multiply pointer-events-none select-none hidden lg:block [mask-image:radial-gradient(ellipse_at_bottom_right,black_25%,transparent_68%)]" />
+
+            {/* Back */}
+            <button
+              onClick={goBack}
+              className="group/back self-start inline-flex items-center gap-2 mb-8 font-label-caps text-label-caps uppercase tracking-widest text-on-surface-variant hover:text-raw-sienna transition-colors cursor-pointer"
+            >
+              <ArrowLeft size={16} strokeWidth={1.5} className="transition-transform group-hover/back:-translate-x-1" />
+              Back
+            </button>
 
             {/* Header */}
             <div className="mb-12">
