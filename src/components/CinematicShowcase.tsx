@@ -2,104 +2,13 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'motion/react';
 import { ShoppingBag, ArrowLeft, ArrowRight, Check, Loader2 } from 'lucide-react';
-import { IMAGES } from '../config/images';
+import { products, type Product } from '../data/products';
 
-const products = [
-  {
-    id: "rosemary",
-    name: "Rosemary Oil",
-    desc: "Stimulating & Strengthening",
-    longDesc: "Steam-distilled pure essential extract. Invigorating and clarifying, celebrated for stimulating scalp vitality and restoring hair radiance.",
-    price: 42.00,
-    tag: "Best Seller",
-    bgText: "ROSEMARY",
-    img: IMAGES.rosemary,
-    link: "/product",
-    spec: "60ML / 2OZ"
-  },
-  {
-    id: "black-seed",
-    name: "Black Seed Oil",
-    desc: "Restorative & Healing",
-    longDesc: "Cold-pressed from Nigella Sativa seeds. A dense antioxidant powerhouse that heals the skin barrier, reduces redness, and deeply restores.",
-    price: 48.00,
-    bgText: "NIGELLA",
-    img: IMAGES.blackSeed,
-    link: "/product/black-seed",
-    spec: "120ML / 4OZ"
-  },
-  {
-    id: "pumpkin-seed",
-    name: "Pumpkin Seed Oil",
-    desc: "Nutrient-Rich Glow",
-    longDesc: "Pressed from organic Styrian pumpkin seeds. Abundant in zinc and skin-firming vitamins, delivering a radiant, lightweight dewiness.",
-    price: 38.00,
-    bgText: "PUMPKIN",
-    img: IMAGES.pumpkinSeed,
-    link: "/product/pumpkin-seed",
-    spec: "120ML / 4OZ"
-  },
-  {
-    id: "castor",
-    name: "Castor Oil",
-    desc: "Lash & Brow Vitality",
-    longDesc: "Thick, hexane-free organic castor seed press. An ancient humectant shield that fortifies hair shafts and promotes lush growth.",
-    price: 34.00,
-    bgText: "CASTOR",
-    img: IMAGES.castor,
-    link: "/product",
-    spec: "60ML / 2OZ"
-  },
-  {
-    id: "sesame",
-    name: "Sesame Oil",
-    desc: "Lightweight & Conditioning",
-    longDesc: "Cold-pressed from Ethiopia's golden Humera sesame. A featherlight, vitamin E–rich oil that seals in moisture and softens skin without any heavy residue.",
-    price: 38.00,
-    tag: "New",
-    bgText: "SESAME",
-    img: IMAGES.sesame,
-    link: "/product/sesame",
-    spec: "120ML / 4OZ"
-  },
-  {
-    id: "growth",
-    name: "Growth Oil",
-    desc: "Root to Tip Density",
-    longDesc: "Our signature growth elixir — a small-batch blend of rosemary, black seed, and castor oils that invigorates the scalp and supports thicker, fuller-looking hair.",
-    price: 58.00,
-    tag: "New",
-    bgText: "GROWTH",
-    img: IMAGES.growth,
-    link: "/product/growth",
-    spec: "120ML / 4OZ"
-  },
-  {
-    id: "flaxseed",
-    name: "Flaxseed Oil",
-    desc: "Omega-Rich Definition",
-    longDesc: "Cold-pressed from heritage Ethiopian flax (telba). One of nature's richest plant sources of omega-3, it defines curls, calms frizz, and nourishes the scalp.",
-    price: 42.00,
-    tag: "New",
-    bgText: "FLAXSEED",
-    img: IMAGES.flaxseed,
-    link: "/product/flaxseed",
-    spec: "120ML / 4OZ"
-  }
-];
-
-const bgGradients = [
-  "linear-gradient(160deg, #FDFBF7 0%, #F0E8DE 100%)", // Rosemary — Canvas → light Sienna wash
-  "linear-gradient(160deg, #F6EDE0 0%, #E5D4BA 100%)", // Black Seed — warm amber, richest Sienna pull
-  "linear-gradient(160deg, #FDFBF7 0%, #EDE4D7 100%)", // Pumpkin Seed — Canvas → honeyed mid-tint
-  "linear-gradient(160deg, #F4EDE6 0%, #E2D0C0 100%)", // Castor — clay-warm, deepest Canvas blend
-  "linear-gradient(160deg, #FBF4E8 0%, #E8D2A8 100%)", // Sesame — golden honey wash
-  "linear-gradient(160deg, #F7F4E9 0%, #DAD6B0 100%)", // Growth — herbal olive-gold
-  "linear-gradient(160deg, #F8EFE4 0%, #E3C9A6 100%)", // Flaxseed — warm amber-brown
-];
+// Open the carousel on the featured ("Best Seller") product, falling back to the first.
+const featuredIndex = Math.max(0, products.findIndex((p) => p.tag === 'Best Seller'));
 
 interface ShowcaseCardProps {
-  product: typeof products[number];
+  product: Product;
   offset: number;
   isActive: boolean;
   isAdjacent: boolean;
@@ -167,7 +76,7 @@ function ShowcaseCard({ product, offset, isActive, isAdjacent, rotateX, rotateY,
             animate={{ scale: isActive ? 1.12 : 1.0 }}
             transition={{ scale: { duration: isActive ? 1.0 : 0, ease: [0.16, 1, 0.3, 1] } }}
             className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-120"
-            src={product.img}
+            src={product.image}
             draggable="false"
           />
         </motion.div>
@@ -177,7 +86,7 @@ function ShowcaseCard({ product, offset, isActive, isAdjacent, rotateX, rotateY,
 }
 
 export default function CinematicShowcase() {
-  const [activeIndex, setActiveIndex] = useState(0);
+  const [activeIndex, setActiveIndex] = useState(featuredIndex);
   const [cartStatus, setCartStatus] = useState<'idle' | 'adding' | 'added'>('idle');
   const [rotateX, setRotateX] = useState(0);
   const [rotateY, setRotateY] = useState(0);
@@ -262,7 +171,7 @@ export default function CinematicShowcase() {
           cart = [];
         }
       }
-      
+
       const existingIndex = cart.findIndex((item: any) => item.id === activeProduct.id);
       if (existingIndex > -1) {
         cart[existingIndex].quantity += 1;
@@ -271,12 +180,12 @@ export default function CinematicShowcase() {
           id: activeProduct.id,
           name: activeProduct.name,
           price: activeProduct.price,
-          image: activeProduct.img,
-          specs: activeProduct.spec,
+          image: activeProduct.image,
+          specs: activeProduct.specs,
           quantity: 1
         });
       }
-      
+
       localStorage.setItem('yaboil_cart', JSON.stringify(cart));
       window.dispatchEvent(new Event('cart-updated'));
       setCartStatus('added');
@@ -295,7 +204,7 @@ export default function CinematicShowcase() {
       onMouseUp={handleMouseUp}
       onTouchStart={handleTouchStart}
       onTouchEnd={handleTouchEnd}
-      animate={{ background: bgGradients[activeIndex] }}
+      animate={{ background: products[activeIndex].bgGradient }}
       transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
       className="relative min-h-[95vh] flex flex-col justify-between overflow-hidden py-16 md:py-24 px-6 md:px-12"
     >
@@ -375,7 +284,7 @@ export default function CinematicShowcase() {
             Curated cold-pressed active essentials.
           </h2>
         </div>
-        
+
         {/* Navigation Indicators & Controls */}
         <div className="flex items-center gap-6 self-end md:self-auto">
           <div className="font-label-caps text-xs tracking-wider text-deep-bark/60 font-medium">
@@ -449,12 +358,12 @@ export default function CinematicShowcase() {
                 {activeProduct.name}
               </h3>
               <p className="font-label-caps text-xs md:text-sm text-raw-sienna tracking-[0.25em] uppercase mt-2 font-medium">
-                {activeProduct.desc} — {activeProduct.spec}
+                {activeProduct.tagline} — {activeProduct.specs}
               </p>
             </div>
-            
+
             <p className="font-body-md text-sm md:text-base text-on-surface-variant max-w-lg leading-relaxed font-light">
-              {activeProduct.longDesc}
+              {activeProduct.blurb}
             </p>
 
             <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-6 pt-4 w-full justify-center">
@@ -495,7 +404,7 @@ export default function CinematicShowcase() {
 
                 {/* Editorial Details Link */}
                 <Link
-                  to={activeProduct.link}
+                  to={`/product/${activeProduct.id}`}
                   className="px-6 h-[52px] border border-deep-bark/20 hover:border-deep-bark hover:bg-canvas/40 text-deep-bark font-label-caps text-[11px] uppercase tracking-[0.2em] font-semibold transition-all duration-300 flex items-center justify-center rounded-none"
                 >
                   Discover

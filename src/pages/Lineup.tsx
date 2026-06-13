@@ -1,91 +1,12 @@
-import React from 'react';
+import type { Key } from 'react';
 import { Link } from 'react-router-dom';
 import Footer from '../components/Footer';
 import { IMAGES } from '../config/images';
+import { products, type Product } from '../data/products';
 
-interface Product {
-  name: string;
-  latinName: string;
-  price: number;
-  description: string;
-  origin: string;
-  image: string;
-  link: string;
-  offset?: boolean;
-}
-
-const products: Product[] = [
-  {
-    name: 'Black Seed Oil',
-    latinName: 'Nigella Sativa',
-    price: 48,
-    description: 'Cold-pressed for maximum potency. Renowned for its dense antioxidant profile and deeply restorative properties.',
-    origin: 'Egypt',
-    image: IMAGES.blackSeed,
-    link: '/product/black-seed',
-  },
-  {
-    name: 'Pumpkin Seed Oil',
-    latinName: 'Cucurbita Pepo',
-    price: 42,
-    description: 'Rich in zinc and essential fatty acids. A deeply nourishing, lightweight oil ideal for sensitive skin profiles.',
-    origin: 'Austria',
-    image: IMAGES.pumpkinSeed,
-    link: '/product/pumpkin-seed',
-    offset: true,
-  },
-  {
-    name: 'Castor Oil',
-    latinName: 'Ricinus Communis',
-    price: 38,
-    description: 'Hexane-free and unrefined. A dense, humectant barrier oil traditional used for fortifying hair and brows.',
-    origin: 'India',
-    image: IMAGES.castor,
-    link: '/product',
-  },
-  {
-    name: 'Rosemary Oil',
-    latinName: 'Salvia Rosmarinus',
-    price: 55,
-    description: 'Steam-distilled pure essential extract. Invigorating and clarifying, celebrated for stimulating scalp vitality.',
-    origin: 'Spain',
-    image: IMAGES.rosemary,
-    link: '/product',
-    offset: true,
-  },
-  {
-    name: 'Sesame Oil',
-    latinName: 'Sesamum Indicum',
-    price: 38,
-    description: 'Cold-pressed from golden Humera sesame seeds. A featherlight, vitamin E–rich oil that conditions strands and softens skin without weighing either down.',
-    origin: 'Ethiopia',
-    image: IMAGES.sesame,
-    link: '/product/sesame',
-  },
-  {
-    name: 'Growth Oil',
-    latinName: 'Botanical Blend',
-    price: 58,
-    description: 'Our signature root-to-tip growth elixir — a small-batch blend of rosemary, black seed, and castor oils to awaken the scalp and encourage thicker, fuller-looking hair.',
-    origin: 'Small-Batch Blend',
-    image: IMAGES.growth,
-    link: '/product/growth',
-    offset: true,
-  },
-  {
-    name: 'Flaxseed Oil',
-    latinName: 'Linum Usitatissimum',
-    price: 42,
-    description: 'Cold-pressed from heritage flax (telba). An omega-3–dense oil that defines curls, smooths frizz, and feeds the scalp the essential fatty acids it craves.',
-    origin: 'Ethiopia',
-    image: IMAGES.flaxseed,
-    link: '/product/flaxseed',
-  },
-];
-
-function LineupCard({ product, key }: { product: Product; key?: React.Key }) {
+function LineupCard({ product, offset }: { product: Product; offset: boolean; key?: Key }) {
   return (
-    <div className={`group flex flex-col bg-alabaster border border-raw-sienna/10 overflow-hidden transition-all duration-500 hover:shadow-[10px_10px_30px_rgba(74,44,17,0.12)]${product.offset ? ' md:mt-24' : ''}`}>
+    <div className={`group flex flex-col bg-alabaster border border-raw-sienna/10 overflow-hidden transition-all duration-500 hover:shadow-[10px_10px_30px_rgba(74,44,17,0.12)]${offset ? ' md:mt-24' : ''}`}>
       <div className="relative h-[45vh] md:h-[60vh] lg:h-[70vh] w-full overflow-hidden bg-surface-container-low cursor-pointer">
         <img
           alt={`${product.name} Bottle`}
@@ -101,10 +22,10 @@ function LineupCard({ product, key }: { product: Product; key?: React.Key }) {
           <h2 className="font-headline-md text-headline-md text-deep-bark font-medium">{product.name}</h2>
           <span className="font-body-md text-body-md text-raw-sienna">${product.price}</span>
         </div>
-        <p className="font-body-md text-body-md text-on-surface-variant">{product.description}</p>
+        <p className="font-body-md text-body-md text-on-surface-variant">{product.cardDesc}</p>
         <div className="mt-4 pt-4 border-t border-raw-sienna/10 flex justify-between items-center">
           <span className="font-label-caps text-label-caps text-tertiary uppercase tracking-widest">Origin: {product.origin}</span>
-          <Link to={product.link} className="font-label-caps text-label-caps text-canvas bg-raw-sienna px-6 py-3 hover:scale-[1.02] transition-transform duration-300 golden-shadow uppercase tracking-widest cursor-pointer">Discover</Link>
+          <Link to={`/product/${product.id}`} className="font-label-caps text-label-caps text-canvas bg-raw-sienna px-6 py-3 hover:scale-[1.02] transition-transform duration-300 golden-shadow uppercase tracking-widest cursor-pointer">Discover</Link>
         </div>
       </div>
     </div>
@@ -127,8 +48,8 @@ export default function Lineup() {
         <section className="w-full px-page-margin-mobile md:px-page-margin-desktop pb-section-gap max-w-screen-2xl mx-auto relative overflow-hidden">
           <img src={IMAGES.pumpkinVine} aria-hidden="true" alt="" className="absolute bottom-0 right-0 w-[240px] h-auto opacity-[0.11] mix-blend-multiply pointer-events-none select-none hidden lg:block [filter:sepia(0.8)_saturate(0.5)] [mask-image:radial-gradient(ellipse_at_bottom_right,black_25%,transparent_70%)]" />
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-16 relative z-10">
-            {products.map((product) => (
-              <LineupCard key={product.name} product={product} />
+            {products.map((product, i) => (
+              <LineupCard key={product.id} product={product} offset={i % 2 === 1} />
             ))}
           </div>
         </section>

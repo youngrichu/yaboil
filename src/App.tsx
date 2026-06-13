@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { BrowserRouter, Routes, Route, Link, useLocation } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Link, Navigate, useLocation } from 'react-router-dom';
 import Home from './pages/Home';
 import GoldenHour from './pages/GoldenHour';
 import HighImpact from './pages/HighImpact';
@@ -8,11 +8,7 @@ import Lineup from './pages/Lineup';
 import Process from './pages/Process';
 import Journal from './pages/Journal';
 import HarvestingDesertDetail from './pages/HarvestingDesertDetail';
-import ProductDetail from './pages/ProductDetail';
-import PumpkinSeedDetail from './pages/PumpkinSeedDetail';
-import SesameDetail from './pages/SesameDetail';
-import GrowthDetail from './pages/GrowthDetail';
-import FlaxseedDetail from './pages/FlaxseedDetail';
+import ProductPage from './pages/ProductPage';
 import Cart from './pages/Cart';
 import Privacy from './pages/Privacy';
 import Terms from './pages/Terms';
@@ -46,12 +42,8 @@ export default function App() {
           <Route path="/process" element={<Process />} />
           <Route path="/journal" element={<Journal />} />
           <Route path="/journal/harvesting-the-desert" element={<HarvestingDesertDetail />} />
-          <Route path="/product" element={<ProductDetail />} />
-          <Route path="/product/black-seed" element={<ProductDetail />} />
-          <Route path="/product/pumpkin-seed" element={<PumpkinSeedDetail />} />
-          <Route path="/product/sesame" element={<SesameDetail />} />
-          <Route path="/product/growth" element={<GrowthDetail />} />
-          <Route path="/product/flaxseed" element={<FlaxseedDetail />} />
+          <Route path="/product" element={<Navigate to="/product/black-seed" replace />} />
+          <Route path="/product/:id" element={<ProductPage />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="/privacy" element={<Privacy />} />
           <Route path="/terms" element={<Terms />} />
