@@ -70,10 +70,11 @@ function ShowcaseCard({ product, offset, isActive, isAdjacent, rotateX, rotateY,
             </span>
           )}
           <div className="absolute inset-0 bg-gradient-to-t from-deep-bark/[0.05] to-transparent pointer-events-none z-10" />
-          {/* IMAGE ZOOM DISABLED FOR FLICKER TESTING — was: animate={{ scale: isActive ? 1.12 : 1.0 }} */}
-          <img
+          <motion.img
             alt={product.name}
-            className="w-full h-full object-cover"
+            animate={{ scale: isActive ? 1.12 : 1.0 }}
+            transition={{ scale: { duration: isActive ? 1.0 : 0, ease: [0.16, 1, 0.3, 1] } }}
+            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-120"
             src={product.image}
             draggable="false"
           />
