@@ -80,8 +80,8 @@ function NavBar() {
             >
               {isMobileMenuOpen ? <X size={24} className={iconClass} /> : <Menu size={24} className={iconClass} />}
             </button>
-            <Link to="/" className={`text-2xl font-bold tracking-tight flex items-center gap-4 ${textClass}`} aria-label="YabOil">
-              <img src={IMAGES.logoSvg} alt="YabOil Logo" className="h-10 w-10 md:h-12 md:w-12 object-contain" width="48" height="48" />
+            <Link to="/" className={`text-2xl font-bold tracking-tight flex items-center gap-4 ${textClass}`}>
+              <img src={IMAGES.logoSvg} alt="" className="h-10 w-10 md:h-12 md:w-12 object-contain" width="48" height="48" />
               <span className="hidden lg:block text-headline-md tracking-tighter">YabOil</span>
             </Link>
           </div>
