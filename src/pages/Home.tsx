@@ -124,13 +124,13 @@ export default function Home() {
         <div className="flex whitespace-nowrap animate-marquee">
           {[1, 2].map((_, idx) => (
             <div key={idx} className="flex items-center gap-12 px-6">
-              <span className="font-headline-md text-4xl opacity-30 italic">Pure Castor</span>
+              <span className="font-headline-md text-4xl italic">Pure Castor</span>
               <span className="material-symbols-outlined text-raw-sienna" aria-hidden="true">fiber_manual_record</span>
-              <span className="font-headline-md text-4xl opacity-30 italic">Organic Rosemary</span>
+              <span className="font-headline-md text-4xl italic">Organic Rosemary</span>
               <span className="material-symbols-outlined text-raw-sienna" aria-hidden="true">fiber_manual_record</span>
-              <span className="font-headline-md text-4xl opacity-30 italic">Black Seed</span>
+              <span className="font-headline-md text-4xl italic">Black Seed</span>
               <span className="material-symbols-outlined text-raw-sienna" aria-hidden="true">fiber_manual_record</span>
-              <span className="font-headline-md text-4xl opacity-30 italic">Pumpkin Seed</span>
+              <span className="font-headline-md text-4xl italic">Pumpkin Seed</span>
               <span className="material-symbols-outlined text-raw-sienna" aria-hidden="true">fiber_manual_record</span>
             </div>
           ))}
