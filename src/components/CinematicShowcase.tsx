@@ -49,6 +49,42 @@ const products = [
     img: IMAGES.castor,
     link: "/product",
     spec: "60ML / 2OZ"
+  },
+  {
+    id: "sesame",
+    name: "Sesame Oil",
+    desc: "Lightweight & Conditioning",
+    longDesc: "Cold-pressed from Ethiopia's golden Humera sesame. A featherlight, vitamin E–rich oil that seals in moisture and softens skin without any heavy residue.",
+    price: 38.00,
+    tag: "New",
+    bgText: "SESAME",
+    img: IMAGES.sesame,
+    link: "/product/sesame",
+    spec: "120ML / 4OZ"
+  },
+  {
+    id: "growth",
+    name: "Growth Oil",
+    desc: "Root to Tip Density",
+    longDesc: "Our signature growth elixir — a small-batch blend of rosemary, black seed, and castor oils that invigorates the scalp and supports thicker, fuller-looking hair.",
+    price: 58.00,
+    tag: "New",
+    bgText: "GROWTH",
+    img: IMAGES.growth,
+    link: "/product/growth",
+    spec: "120ML / 4OZ"
+  },
+  {
+    id: "flaxseed",
+    name: "Flaxseed Oil",
+    desc: "Omega-Rich Definition",
+    longDesc: "Cold-pressed from heritage Ethiopian flax (telba). One of nature's richest plant sources of omega-3, it defines curls, calms frizz, and nourishes the scalp.",
+    price: 42.00,
+    tag: "New",
+    bgText: "FLAXSEED",
+    img: IMAGES.flaxseed,
+    link: "/product/flaxseed",
+    spec: "120ML / 4OZ"
   }
 ];
 
@@ -57,6 +93,9 @@ const bgGradients = [
   "linear-gradient(160deg, #F6EDE0 0%, #E5D4BA 100%)", // Black Seed — warm amber, richest Sienna pull
   "linear-gradient(160deg, #FDFBF7 0%, #EDE4D7 100%)", // Pumpkin Seed — Canvas → honeyed mid-tint
   "linear-gradient(160deg, #F4EDE6 0%, #E2D0C0 100%)", // Castor — clay-warm, deepest Canvas blend
+  "linear-gradient(160deg, #FBF4E8 0%, #E8D2A8 100%)", // Sesame — golden honey wash
+  "linear-gradient(160deg, #F7F4E9 0%, #DAD6B0 100%)", // Growth — herbal olive-gold
+  "linear-gradient(160deg, #F8EFE4 0%, #E3C9A6 100%)", // Flaxseed — warm amber-brown
 ];
 
 interface ShowcaseCardProps {

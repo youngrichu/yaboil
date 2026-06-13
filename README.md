@@ -17,9 +17,10 @@ The current app is front-end only. Cart, checkout, login, profile, order history
 ## App Surface
 
 - `/` - homepage with brand story, product spotlight, and editorial sections
-- `/lineup` - four-product botanical oil lineup
+- `/lineup` - seven-product botanical oil lineup
 - `/product` and `/product/black-seed` - black seed oil product detail and add-to-cart flow
 - `/product/pumpkin-seed` - pumpkin seed oil product detail
+- `/product/sesame`, `/product/growth`, `/product/flaxseed` - sesame, growth blend, and flaxseed oil product details
 - `/process` - sourcing and cold-press process story
 - `/philosophy` - brand philosophy
 - `/journal` and `/journal/harvesting-the-desert` - editorial content

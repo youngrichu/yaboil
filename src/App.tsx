@@ -10,6 +10,9 @@ import Journal from './pages/Journal';
 import HarvestingDesertDetail from './pages/HarvestingDesertDetail';
 import ProductDetail from './pages/ProductDetail';
 import PumpkinSeedDetail from './pages/PumpkinSeedDetail';
+import SesameDetail from './pages/SesameDetail';
+import GrowthDetail from './pages/GrowthDetail';
+import FlaxseedDetail from './pages/FlaxseedDetail';
 import Cart from './pages/Cart';
 import Privacy from './pages/Privacy';
 import Terms from './pages/Terms';
@@ -46,6 +49,9 @@ export default function App() {
           <Route path="/product" element={<ProductDetail />} />
           <Route path="/product/black-seed" element={<ProductDetail />} />
           <Route path="/product/pumpkin-seed" element={<PumpkinSeedDetail />} />
+          <Route path="/product/sesame" element={<SesameDetail />} />
+          <Route path="/product/growth" element={<GrowthDetail />} />
+          <Route path="/product/flaxseed" element={<FlaxseedDetail />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="/privacy" element={<Privacy />} />
           <Route path="/terms" element={<Terms />} />

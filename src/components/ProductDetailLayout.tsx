@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Footer from './Footer';
 import ProductButton from './ProductButton';
@@ -22,6 +23,12 @@ interface ProductData {
 
 export default function ProductDetailLayout({ product }: { product: ProductData }) {
   const { cartStatus, cartQuantity, updateQuantity, addToCart } = useProductCart(product.id);
+
+  useEffect(() => {
+    const previousTitle = document.title;
+    document.title = `YabOil | ${product.name}`;
+    return () => { document.title = previousTitle; };
+  }, [product.name]);
 
   const cartItem = {
     id: product.id,

@@ -53,6 +53,34 @@ const products: Product[] = [
     link: '/product',
     offset: true,
   },
+  {
+    name: 'Sesame Oil',
+    latinName: 'Sesamum Indicum',
+    price: 38,
+    description: 'Cold-pressed from golden Humera sesame seeds. A featherlight, vitamin E–rich oil that conditions strands and softens skin without weighing either down.',
+    origin: 'Ethiopia',
+    image: IMAGES.sesame,
+    link: '/product/sesame',
+  },
+  {
+    name: 'Growth Oil',
+    latinName: 'Botanical Blend',
+    price: 58,
+    description: 'Our signature root-to-tip growth elixir — a small-batch blend of rosemary, black seed, and castor oils to awaken the scalp and encourage thicker, fuller-looking hair.',
+    origin: 'Small-Batch Blend',
+    image: IMAGES.growth,
+    link: '/product/growth',
+    offset: true,
+  },
+  {
+    name: 'Flaxseed Oil',
+    latinName: 'Linum Usitatissimum',
+    price: 42,
+    description: 'Cold-pressed from heritage flax (telba). An omega-3–dense oil that defines curls, smooths frizz, and feeds the scalp the essential fatty acids it craves.',
+    origin: 'Ethiopia',
+    image: IMAGES.flaxseed,
+    link: '/product/flaxseed',
+  },
 ];
 
 function LineupCard({ product, key }: { product: Product; key?: React.Key }) {
@@ -92,7 +120,7 @@ export default function Lineup() {
           <img src={IMAGES.castorIllustration} aria-hidden="true" alt="" className="absolute top-0 right-0 w-[260px] h-auto opacity-[0.13] mix-blend-multiply pointer-events-none select-none hidden lg:block [mask-image:radial-gradient(ellipse_at_top_right,black_25%,transparent_68%)]" />
           <h1 className="font-serif text-headline-lg-mobile md:text-display-lg text-deep-bark mb-6 max-w-4xl tracking-tight relative z-10">The Artisanal Lineup</h1>
           <p className="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto leading-relaxed relative z-10">
-            Four exceptional botanicals, cold-pressed in small batches. Each bottle represents a commitment to purity, capturing the essence of organic agriculture through meticulous extraction processes.
+            Seven exceptional botanicals, cold-pressed in small batches. Each bottle represents a commitment to purity, capturing the essence of organic agriculture through meticulous extraction processes.
           </p>
         </section>
 
