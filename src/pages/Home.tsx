@@ -40,7 +40,7 @@ export default function Home() {
   return (
     <div className="bg-canvas text-on-surface font-body-md overflow-x-hidden min-h-screen">
       {/* Hero Section */}
-      <section ref={addToRefs} className="relative min-h-screen flex items-center pt-20 overflow-hidden transition-all duration-1000 opacity-100 translate-y-0">
+      <section ref={addToRefs} className="relative min-h-screen flex items-center pt-20 overflow-hidden transition-all duration-1000 opacity-100 translate-y-0" aria-label="Hero section - Artisanal botanical oils">
         <div className="absolute inset-0 z-0">
           <video
             autoPlay
@@ -50,9 +50,12 @@ export default function Home() {
             poster={IMAGES.heroPoster}
             ref={(el) => { if (el) el.playbackRate = 0.65; }}
             className="w-full h-full object-cover brightness-[0.98]"
+            aria-label="Artisanal pressing process video"
           >
             <source src={VIDEOS.heroBg} type="video/webm" />
             <source src={VIDEOS.heroBgCompressed} type="video/mp4" />
+            {/* Video captions - not yet available, add when available */}
+            <track kind="captions" src="/captions/hero-captions.vtt" srclang="en" label="English" />
           </video>
           <div className="absolute inset-0 bg-deep-bark/30"></div>
           <div className="absolute inset-0 bg-gradient-to-tr from-deep-bark/75 via-deep-bark/40 to-transparent"></div>
@@ -81,13 +84,16 @@ export default function Home() {
       </section>
 
       {/* Brand Story Section */}
-      <section ref={addToRefs} className="grid grid-cols-1 md:grid-cols-2 min-h-[80vh] transition-all duration-1000 opacity-100 translate-y-0">
+      <section ref={addToRefs} className="grid grid-cols-1 md:grid-cols-2 min-h-[80vh] transition-all duration-1000 opacity-100 translate-y-0" aria-label="Our philosophy and story">
         <div className="relative overflow-hidden bg-surface-container-low group min-h-[50vh] md:min-h-full">
           <div className="absolute inset-0 bg-deep-bark/5 z-10 transition-opacity group-hover:opacity-0 pointer-events-none"></div>
           <img
             src={IMAGES.brandStory}
-            alt=""
+            alt="YabOil artisanal pressing process"
             className="absolute inset-0 w-full h-full object-cover"
+            loading="lazy"
+            width="600"
+            height="800"
           />
         </div>
         <div className="flex items-center justify-center p-page-margin-mobile md:p-page-margin-desktop bg-canvas border-l border-raw-sienna/5 relative overflow-hidden">
@@ -114,18 +120,18 @@ export default function Home() {
       </section>
 
       {/* Ingredients Banner */}
-      <section ref={addToRefs} className="py-24 bg-deep-bark text-canvas overflow-hidden transition-all duration-1000 opacity-100 translate-y-0">
+      <section ref={addToRefs} className="py-24 bg-deep-bark text-canvas overflow-hidden transition-all duration-1000 opacity-100 translate-y-0" aria-label="Botanical ingredients" role="banner">
         <div className="flex whitespace-nowrap animate-marquee">
           {[1, 2].map((_, idx) => (
             <div key={idx} className="flex items-center gap-12 px-6">
               <span className="font-headline-md text-4xl opacity-30 italic">Pure Castor</span>
-              <span className="material-symbols-outlined text-raw-sienna">fiber_manual_record</span>
+              <span className="material-symbols-outlined text-raw-sienna" aria-hidden="true">fiber_manual_record</span>
               <span className="font-headline-md text-4xl opacity-30 italic">Organic Rosemary</span>
-              <span className="material-symbols-outlined text-raw-sienna">fiber_manual_record</span>
+              <span className="material-symbols-outlined text-raw-sienna" aria-hidden="true">fiber_manual_record</span>
               <span className="font-headline-md text-4xl opacity-30 italic">Black Seed</span>
-              <span className="material-symbols-outlined text-raw-sienna">fiber_manual_record</span>
+              <span className="material-symbols-outlined text-raw-sienna" aria-hidden="true">fiber_manual_record</span>
               <span className="font-headline-md text-4xl opacity-30 italic">Pumpkin Seed</span>
-              <span className="material-symbols-outlined text-raw-sienna">fiber_manual_record</span>
+              <span className="material-symbols-outlined text-raw-sienna" aria-hidden="true">fiber_manual_record</span>
             </div>
           ))}
         </div>

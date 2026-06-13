@@ -68,14 +68,20 @@ function NavBar() {
 
   return (
     <>
-      <nav className={navClass}>
+      <nav className={navClass} aria-label="Main navigation">
         <div className="w-full flex items-center justify-between px-6 md:px-12">
           <div className="flex items-center gap-4">
-            <button className="md:hidden focus:outline-none hover:opacity-70 transition-opacity" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
+            <button 
+              className="md:hidden focus:outline-none hover:opacity-70 transition-opacity" 
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              aria-label={isMobileMenuOpen ? "Close navigation menu" : "Open navigation menu"}
+              aria-expanded={isMobileMenuOpen}
+              aria-controls="mobile-menu"
+            >
               {isMobileMenuOpen ? <X size={24} className={iconClass} /> : <Menu size={24} className={iconClass} />}
             </button>
-            <Link to="/" className={`text-2xl font-bold tracking-tight flex items-center gap-4 ${textClass}`}>
-              <img src={IMAGES.logoSvg} alt="YabOil Logo" className="h-10 w-10 md:h-12 md:w-12 object-contain" />
+            <Link to="/" className={`text-2xl font-bold tracking-tight flex items-center gap-4 ${textClass}`} aria-label="YabOil Home">
+              <img src={IMAGES.logoSvg} alt="YabOil Logo" className="h-10 w-10 md:h-12 md:w-12 object-contain" width="48" height="48" />
               <span className="hidden lg:block text-headline-md tracking-tighter">YabOil</span>
             </Link>
           </div>
@@ -88,8 +94,9 @@ function NavBar() {
           </div>
 
           <div className={`flex items-center gap-4 md:gap-6 ${iconClass}`}>
-            <Link to="/cart" className="hover:scale-105 transition-transform focus:outline-none relative flex items-center justify-center p-1 text-current">
-              <ShoppingBag size={20} strokeWidth={1.5} />
+            <Link to="/cart" className="hover:scale-105 transition-transform focus:outline-none relative flex items-center justify-center p-1 text-current" aria-label="Shopping Cart">
+              <ShoppingBag size={20} strokeWidth={1.5} aria-hidden="true" />
+              <span className="sr-only">Cart</span>
               <CartIndicator isHighImpact={isHighImpact} />
             </Link>
           </div>
@@ -97,7 +104,13 @@ function NavBar() {
       </nav>
 
       {/* Mobile Menu Content */}
-      <div className={`md:hidden fixed top-[80px] left-0 w-full h-[calc(100vh-80px)] bg-canvas z-40 transform transition-transform duration-300 ease-in-out ${isMobileMenuOpen ? 'translate-x-0' : '-translate-x-full'} border-t border-obsidian/10`}>
+      <div 
+        id="mobile-menu" 
+        className={`md:hidden fixed top-[80px] left-0 w-full h-[calc(100vh-80px)] bg-canvas z-40 transform transition-transform duration-300 ease-in-out ${isMobileMenuOpen ? 'translate-x-0' : '-translate-x-full'} border-t border-obsidian/10`}
+        role="dialog"
+        aria-label="Mobile navigation menu"
+        aria-modal="true"
+      >
          <div className="flex flex-col p-8 gap-8">
             <Link onClick={() => setIsMobileMenuOpen(false)} to="/process" className="font-label-caps text-sm uppercase tracking-[0.2em] font-medium text-on-surface-variant cursor-pointer hover:text-primary">Process</Link>
             <Link onClick={() => setIsMobileMenuOpen(false)} to="/lineup" className="font-label-caps text-sm uppercase tracking-[0.2em] font-medium text-on-surface-variant cursor-pointer hover:text-primary">Lineup</Link>
@@ -143,7 +156,7 @@ function CartIndicator({ isHighImpact }: { isHighImpact: boolean }) {
   return (
     <span className={`absolute -top-1 -right-1 w-4.5 h-4.5 rounded-full flex items-center justify-center text-[9px] font-bold shadow-md transition-all duration-300 ${
       isHighImpact ? 'bg-hi-obsidian text-hi-surface' : 'bg-raw-sienna text-canvas'
-    }`}>
+    }`} aria-label={`${count} items in cart`}>
       {count}
     </span>
   );

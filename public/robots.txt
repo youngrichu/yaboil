@@ -1,0 +1,5 @@
+User-Agent: *
+Allow: /
+Disallow: /cart
+
+Sitemap: https://yaboil.com/sitemap.xml

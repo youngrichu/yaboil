@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400;1,700&family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Jost:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400;1,700&family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,400&family=Jost:wght@300;400;500;600&display=swap');
 @import "tailwindcss";
 
 @theme {
@@ -10,7 +10,7 @@
   --color-on-primary-container: #fffbff;
   --color-surface: #fff8f6;
   --color-inverse-primary: #eebd8e;
-  --color-raw-sienna: #A67C52;
+  --color-raw-sienna: #8B5E3C;
   --color-on-secondary-container: #785435;
   --color-surface-container: #f4ecea;
   --color-deep-bark: #4A2C11;
@@ -108,7 +108,7 @@
   --spacing-base-unit: 4px;
   --spacing-section-gap: 6rem;
   
-  --color-sienna: #A67C52;
+  --color-sienna: #8B5E3C;
   --color-bark: #4A2C11;
 
   --color-hi-surface: #fbf9f9;

@@ -31,18 +31,18 @@ export default function Footer() {
 
           {/* Brand column */}
           <div className="lg:col-span-1 space-y-6">
-            <img src={IMAGES.logoSvg} alt="YabOil" className="h-14 w-auto object-contain brightness-0 invert opacity-90" />
+            <img src={IMAGES.logoSvg} alt="YabOil" className="h-14 w-auto object-contain brightness-0 invert opacity-90" width="56" height="56" />
             <p className="font-body-md text-sm text-canvas/70 leading-relaxed max-w-xs">
               Small-batch, cold-pressed botanicals for the modern ritual. Sustainably sourced. Hand-poured.
             </p>
             <div className="flex items-center gap-5 pt-2">
-              <a href="#" aria-label="Instagram" className="text-canvas/50 hover:text-raw-sienna transition-colors duration-300">
+              <a href="#" aria-label="Follow YabOil on Instagram" className="text-canvas/50 hover:text-raw-sienna transition-colors duration-300">
                 <InstagramIcon />
               </a>
-              <a href="#" aria-label="TikTok" className="text-canvas/50 hover:text-raw-sienna transition-colors duration-300">
+              <a href="#" aria-label="Follow YabOil on TikTok" className="text-cundyen .transition-colors duration-300">
                 <TikTokIcon />
               </a>
-              <a href="#" aria-label="Pinterest" className="text-canvas/50 hover:text-raw-sienna transition-colors duration-300">
+              <a href="#" aria-label="Follow YabOil on Pinterest" className="text-canvas/50 hover:text-raw-sienna transition-colors duration-300">
                 <PinterestIcon />
               </a>
             </div>
@@ -50,7 +50,7 @@ export default function Footer() {
 
           {/* Shop column */}
           <div className="space-y-5">
-            <h4 className="font-label-caps text-[10px] text-canvas/40 uppercase tracking-[0.2em]">Shop</h4>
+            <h2 className="font-label-caps text-[10px] text-canvas/60 uppercase tracking-[0.2em]">Shop</h2>
             <ul className="space-y-3 font-body-md text-sm text-canvas/70">
               <li><Link to="/lineup" className="hover:text-raw-sienna transition-colors duration-300">All Products</Link></li>
               <li><Link to="/product/black-seed" className="hover:text-raw-sienna transition-colors duration-300">Black Seed Oil</Link></li>
@@ -62,7 +62,7 @@ export default function Footer() {
 
           {/* Explore column */}
           <div className="space-y-5">
-            <h4 className="font-label-caps text-[10px] text-canvas/40 uppercase tracking-[0.2em]">Explore</h4>
+            <h2 className="font-label-caps text-[10px] text-canvas/60 uppercase tracking-[0.2em]">Explore</h2>
             <ul className="space-y-3 font-body-md text-sm text-canvas/70">
               <li><Link to="/philosophy" className="hover:text-raw-sienna transition-colors duration-300">Our Philosophy</Link></li>
               <li><Link to="/process" className="hover:text-raw-sienna transition-colors duration-300">Our Process</Link></li>
@@ -73,7 +73,7 @@ export default function Footer() {
 
           {/* Newsletter column */}
           <div className="space-y-5">
-            <h4 className="font-label-caps text-[10px] text-canvas/40 uppercase tracking-[0.2em]">Newsletter</h4>
+            <h2 className="font-label-caps text-[10px] text-canvas/60 uppercase tracking-[0.2em]">Newsletter</h2>
             <p className="font-body-md text-sm text-canvas/70 leading-relaxed">
               Slow beauty dispatches, new batches, and sourcing stories.
             </p>
@@ -81,9 +81,10 @@ export default function Footer() {
               <input
                 type="email"
                 placeholder="your@email.com"
+                aria-label="Email address for newsletter"
                 className="w-full bg-transparent border-b border-canvas/20 py-3 pr-10 font-body-md text-sm focus:outline-none focus:border-raw-sienna transition-colors text-canvas placeholder:text-canvas/30 rounded-none"
               />
-              <button className="absolute right-0 top-1/2 -translate-y-1/2 text-raw-sienna cursor-pointer focus:outline-none hover:opacity-80 transition-opacity">
+              <button className="absolute right-0 top-1/2 -translate-y-1/2 text-raw-sienna cursor-pointer focus:outline-none hover:opacity-80 transition-opacity" aria-label="Subscribe to newsletter">
                 <span className="material-symbols-outlined text-[20px]">arrow_forward</span>
               </button>
             </div>
@@ -92,12 +93,12 @@ export default function Footer() {
 
         {/* Bottom bar */}
         <div className="pt-8 border-t border-canvas/10 flex flex-col sm:flex-row justify-between items-center gap-4">
-          <p className="font-label-sm text-[11px] text-canvas/40 tracking-wider">
-            © {new Date().getFullYear()} YabOil Artisanal. All rights reserved.
+          <p className="font-label-sm text-[11px] text-canvas/70 tracking-wider">
+            &copy; {new Date().getFullYear()} YabOil Artisanal. All rights reserved.
           </p>
           <div className="flex items-center gap-6">
-            <Link to="/privacy" className="font-label-sm text-[11px] text-canvas/40 hover:text-canvas/70 transition-colors tracking-wider uppercase">Privacy</Link>
-            <Link to="/terms" className="font-label-sm text-[11px] text-canvas/40 hover:text-canvas/70 transition-colors tracking-wider uppercase">Terms</Link>
+            <Link to="/privacy" className="font-label-sm text-[11px] text-canvas/70 hover:text-canvas/90 transition-colors tracking-wider uppercase">Privacy</Link>
+            <Link to="/terms" className="font-label-sm text-[11px] text-canvas/70 hover:text-canvas/90 transition-colors tracking-wider uppercase">Terms</Link>
           </div>
         </div>
 
