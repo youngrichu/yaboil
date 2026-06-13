@@ -65,7 +65,7 @@ function ShowcaseCard({ product, offset, isActive, isAdjacent, rotateX, rotateY,
           onClick={onClick}
         >
           {product.tag && isActive && (
-            <span className="absolute top-6 left-6 z-20 bg-deep-bark text-canvas px-3 py-1 font-label-caps text-[9px] uppercase tracking-widest rounded-none shadow-sm animate-fade-in">
+            <span className="absolute top-16 left-5 z-20 bg-deep-bark text-canvas px-3 py-1 font-label-caps text-[9px] uppercase tracking-widest rounded-none shadow-md animate-fade-in">
               {product.tag}
             </span>
           )}
