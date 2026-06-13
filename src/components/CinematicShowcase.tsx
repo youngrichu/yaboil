@@ -45,7 +45,7 @@ function ShowcaseCard({ product, offset, isActive, isAdjacent, rotateX, rotateY,
         animate={{
           x: `${offset * 115}%`,
           scale: isActive ? 1 : isAdjacent ? 0.72 : 0.5,
-          opacity: isActive ? 1 : isAdjacent ? 0.55 : 0,
+          opacity: isActive ? 1 : isAdjacent ? 0.55 : 0.001,
           rotate: isActive ? 0 : offset > 0 ? 18 : -22,
         }}
         transition={{
@@ -53,15 +53,15 @@ function ShowcaseCard({ product, offset, isActive, isAdjacent, rotateX, rotateY,
           ease: [0.16, 1, 0.3, 1],
           ...(wrapped && { x: { duration: 0 }, rotate: { duration: 0 } }),
         }}
-        className="w-[200px] sm:w-[260px] md:w-[340px] aspect-[3/4] rounded-[100px_100px_16px_16px] overflow-hidden border border-deep-bark/5 bg-canvas select-none shadow-[20px_30px_60px_-15px_rgba(74,44,17,0.15)] flex flex-col justify-between"
+        style={{ perspective: 1000, willChange: 'transform, opacity' }}
+        className="w-[200px] sm:w-[260px] md:w-[340px] aspect-[3/4] rounded-[100px_100px_16px_16px] overflow-hidden isolate border border-deep-bark/5 bg-canvas select-none shadow-[20px_30px_60px_-15px_rgba(74,44,17,0.15)] flex flex-col justify-between"
       >
         <motion.div
           onMouseMove={isActive ? onMouseMove : undefined}
           onMouseLeave={isActive ? onMouseLeave : undefined}
-          style={{ perspective: 1000, transformStyle: 'preserve-3d' }}
           animate={isActive ? { rotateX, rotateY } : { rotateX: 0, rotateY: 0 }}
           transition={{ type: "tween", ease: "easeOut", duration: 0.1 }}
-          className="w-full h-full relative overflow-hidden flex items-center justify-center group cursor-pointer"
+          className="w-full h-full relative overflow-hidden rounded-[inherit] flex items-center justify-center group cursor-pointer"
           onClick={onClick}
         >
           {product.tag && isActive && (
@@ -70,12 +70,10 @@ function ShowcaseCard({ product, offset, isActive, isAdjacent, rotateX, rotateY,
             </span>
           )}
           <div className="absolute inset-0 bg-gradient-to-t from-deep-bark/[0.05] to-transparent pointer-events-none z-10" />
-          <motion.img
+          {/* IMAGE ZOOM DISABLED FOR FLICKER TESTING — was: animate={{ scale: isActive ? 1.12 : 1.0 }} */}
+          <img
             alt={product.name}
-            style={{ transform: 'translateZ(40px)' }}
-            animate={{ scale: isActive ? 1.12 : 1.0 }}
-            transition={{ scale: { duration: isActive ? 1.0 : 0, ease: [0.16, 1, 0.3, 1] } }}
-            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-120"
+            className="w-full h-full object-cover"
             src={product.image}
             draggable="false"
           />
@@ -196,7 +194,7 @@ export default function CinematicShowcase() {
   };
 
   return (
-    <motion.div
+    <div
       ref={containerRef}
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => { setIsPaused(false); dragStartX.current = null; }}
@@ -204,73 +202,71 @@ export default function CinematicShowcase() {
       onMouseUp={handleMouseUp}
       onTouchStart={handleTouchStart}
       onTouchEnd={handleTouchEnd}
-      animate={{ background: products[activeIndex].bgGradient }}
-      transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
-      className="relative min-h-[95vh] flex flex-col justify-between overflow-hidden py-16 md:py-24 px-6 md:px-12"
+      className="relative min-h-[95vh] flex flex-col justify-between overflow-hidden py-16 md:py-24 px-6 md:px-12 bg-[#F6EFE5]"
     >
+      {/*
+        Cross-faded gradient layers instead of animating `background` on the
+        section itself. Gradients are not compositor-animatable, so Motion
+        interpolates the gradient string in JS and rewrites style.background
+        every frame, forcing a full repaint of the 95vh section (including the
+        11vw stroked text) 60x/s. On mobile GPUs the rasterizer falls behind at
+        transition start and presents blank (white) tiles for a few frames.
+        Opacity cross-fades run entirely on the compositor, and the static
+        beige base color above means any dropped tile flashes beige, not white.
+      */}
+      <div className="absolute inset-0 z-0 pointer-events-none" aria-hidden="true">
+        {products.map((p, idx) => (
+          <motion.div
+            key={p.id}
+            style={{ background: p.bgGradient }}
+            initial={false}
+            animate={{ opacity: idx === activeIndex ? 1 : 0 }}
+            transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+            className="absolute inset-0"
+          />
+        ))}
+      </div>
+
       {/* Background Kinetic Typography */}
       <div className="absolute inset-0 flex flex-col justify-center gap-16 pointer-events-none select-none z-0 overflow-hidden">
         {/* Row 1 Scrolling Left */}
+        {/*
+          The spans must NOT restyle on slide change. These rows are huge
+          (8 names at 11vw, stroked text) — an animated color/opacity change
+          re-rasterizes the whole row every frame for 1s, which stalls the
+          mobile GPU rasterizer and drops the entire page content layer for
+          a few frames (the beige full-page blink). With static content the
+          x-slide is compositor-only, and willChange keeps the rows on their
+          own persistent GPU layers so they never re-raster on transitions.
+        */}
         <motion.div
+          style={{ willChange: 'transform' }}
           animate={{ x: `-${activeIndex * 12 + 10}%` }}
           transition={{ duration: 1.0, ease: [0.16, 1, 0.3, 1] }}
-          className="flex whitespace-nowrap gap-16 text-[11vw] font-bold text-stroke font-serif leading-none tracking-tighter"
+          className="flex whitespace-nowrap gap-16 text-[11vw] font-bold text-stroke font-serif leading-none tracking-tighter opacity-30"
         >
           {products.map((p, idx) => (
-            <span
-              key={`row1-${idx}`}
-              className={`transition-colors duration-1000 ${
-                idx === activeIndex ? "text-deep-bark/5" : "opacity-30"
-              }`}
-            >
-              {p.bgText}
-            </span>
+            <span key={`row1-${idx}`}>{p.bgText}</span>
           ))}
           {/* Double length to ensure space coverage */}
           {products.map((p, idx) => (
-            <span
-              key={`row1-dup-${idx}`}
-              className={`transition-colors duration-1000 ${
-                idx === activeIndex ? "text-deep-bark/5" : "opacity-30"
-              }`}
-            >
-              {p.bgText}
-            </span>
+            <span key={`row1-dup-${idx}`}>{p.bgText}</span>
           ))}
         </motion.div>
 
         {/* Row 2 Scrolling Right */}
         <motion.div
+          style={{ willChange: 'transform' }}
           animate={{ x: `${activeIndex * 12 - 35}%` }}
           transition={{ duration: 1.0, ease: [0.16, 1, 0.3, 1] }}
-          className="flex whitespace-nowrap gap-16 text-[11vw] font-bold text-stroke font-serif leading-none tracking-tighter"
+          className="flex whitespace-nowrap gap-16 text-[11vw] font-bold text-stroke font-serif leading-none tracking-tighter opacity-30"
         >
-          {[...products].reverse().map((p, idx) => {
-            const actualIdx = products.length - 1 - idx;
-            return (
-              <span
-                key={`row2-${idx}`}
-                className={`transition-colors duration-1000 ${
-                  actualIdx === activeIndex ? "text-deep-bark/5" : "opacity-30"
-                }`}
-              >
-                {p.bgText}
-              </span>
-            );
-          })}
-          {[...products].reverse().map((p, idx) => {
-            const actualIdx = products.length - 1 - idx;
-            return (
-              <span
-                key={`row2-dup-${idx}`}
-                className={`transition-colors duration-1000 ${
-                  actualIdx === activeIndex ? "text-deep-bark/5" : "opacity-30"
-                }`}
-              >
-                {p.bgText}
-              </span>
-            );
-          })}
+          {[...products].reverse().map((p, idx) => (
+            <span key={`row2-${idx}`}>{p.bgText}</span>
+          ))}
+          {[...products].reverse().map((p, idx) => (
+            <span key={`row2-dup-${idx}`}>{p.bgText}</span>
+          ))}
         </motion.div>
       </div>
 
@@ -414,6 +410,6 @@ export default function CinematicShowcase() {
           </motion.div>
         </AnimatePresence>
       </div>
-    </motion.div>
+    </div>
   );
 }
